@@ -1,0 +1,134 @@
+html {
+  line-height: $line-height-base;
+}
+
+body {
+  color: $color-primary;
+  font-size: $font-size-base;
+  font-family: $font-family-primary;
+  background-color: $color-tertiary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body * {
+  line-height: $line-height-base;
+  box-sizing: border-box;
+}
+
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-tertiary;
+  text-transform: uppercase;
+  background-color: $color-accent-primary;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: none;
+  outline: none;
+  padding: 17px 30px;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($color-tertiary, 0.1);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s, border-radius 0.5s;
+  }
+
+  &:hover::after {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    transform: translate(0, 0);
+  }
+}
+
+.button-secondary {
+  background: $color-accent-secondary;
+}
+
+.button-border {
+  background: transparent;
+  border: 3px solid $color-accent-secondary;
+  box-sizing: border-box;
+  transition: color $transition-base;
+
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    color: $color-accent-secondary;
+  }
+}
+
+.button-border-additional {
+  color: $color-primary;
+  border-color: $color-additional-1;
+  transition: color $transition-base, border-color $transition-base;
+
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    color: $color-accent-primary;
+    border-color: $color-accent-primary;
+  }
+}
+
+.link {
+  color: $color-accent-secondary;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    transition: $transition-base ease width;
+    bottom: 0;
+    display: block;
+    background: rgba($color-accent-secondary, 0.35);
+  }
+
+  &:hover {
+    &:after {
+      width: 100%;
+    }
+  }
+}
+
+.header-link {
+  visibility: hidden;
+  opacity: 0;
+
+  &.before {
+    top: -4px !important;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  &:hover {
+    .header-link {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

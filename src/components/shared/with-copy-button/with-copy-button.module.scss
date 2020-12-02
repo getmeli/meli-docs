@@ -1,0 +1,30 @@
+.wrapper {
+  position: relative;
+}
+
+.copy-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 3.5px 6.1px;
+  background-color: $color-accent-primary;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  color: $color-tertiary;
+  font-weight: 600;
+  line-height: initial;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color $transition-base;
+  @include sm-down {
+    top: unset;
+    bottom: 10px;
+  }
+  &:hover {
+    background-color: $color-accent-secondary;
+  }
+}

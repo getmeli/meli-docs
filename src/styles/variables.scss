@@ -1,0 +1,66 @@
+//Colors
+$color-primary: #1b0449;
+$color-secondary: #796c93;
+$color-tertiary: #ffffff;
+
+$color-accent-primary: #661aff;
+$color-accent-secondary: #ff7f66;
+
+$color-additional-1: #eeecf9;
+$color-additional-2: #f8f5ff;
+$color-additional-3: #7153ac;
+$color-additional-4: #a894d1;
+
+//Fonts
+$font-family-primary: 'Source Sans Pro', Arial, sans-serif;
+$font-family-secondary: 'Fira Code', monospace;
+
+$font-size-base: 15px;
+$line-height-base: 160%;
+
+$font-size-xl: 35px;
+$line-height-xl: 140%;
+
+$font-size-lg: 22px;
+$line-height-lg: 140%;
+
+$font-size-sm: 18px;
+$line-height-sm: 160%;
+
+$font-size-xs: 12px;
+$line-height-xs: 160%;
+
+$doc-font-size-xl: 30px;
+$doc-font-size-lg: 26px;
+$doc-font-size-md: 22px;
+$doc-font-size-sm: 18px;
+
+// overwriting initial values
+$gap: 20px;
+$mobile: 576;
+$tablet: 768px;
+$desktop: 992px;
+$widescreen: 1180px + (2 * $gap);
+$fullhd-enabled: false;
+
+// Breakpoints
+$breakpoint__down--lg: 1199.98px;
+$breakpoint__down--md: 991.98px;
+$breakpoint__down--sm: 767.98px;
+$breakpoint__down--xs: 575.98px;
+
+// Section spacing
+$padding__section--desktop: 34px;
+$padding__section--mobile: 16px;
+
+// Animate
+$transition-base: 0.2s;
+$transition-function: ease-out;
+
+$transition-time-middle: 0.3s;
+$transition-middle: $transition-time-middle $transition-function;
+
+$transition-time-long: 0.6s;
+
+$header-icon-height: 30px;
+$header-height: 70px;

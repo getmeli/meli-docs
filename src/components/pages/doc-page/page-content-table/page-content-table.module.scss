@@ -1,0 +1,10 @@
+.wrapper {
+  .link {
+    font-weight: bold;
+    color: $color-primary;
+    text-decoration: none;
+    &:hover {
+      color: $color-accent-secondary;
+    }
+  }
+}

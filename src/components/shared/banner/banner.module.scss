@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.title {
+  position: relative;
+  font-weight: 600;
+  font-size: $doc-font-size-lg;
+  color: $color-tertiary;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.img {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,44 @@
+@import 'bulma/sass/utilities/_all.sass';
+@import 'bulma/sass/utilities/mixins.sass';
+
+@mixin lg-down {
+  @media only screen and (max-width: $breakpoint__down--lg) {
+    @content;
+  }
+}
+
+@mixin md-down {
+  @media only screen and (max-width: $breakpoint__down--md) {
+    @content;
+  }
+}
+
+@mixin sm-down {
+  @media only screen and (max-width: $breakpoint__down--sm) {
+    @content;
+  }
+}
+
+@mixin xs-down {
+  @media only screen and (max-width: $breakpoint__down--xs) {
+    @content;
+  }
+}
+
+@mixin no-scrollbars {
+  -ms-overflow-style: none; // IE 10+
+  scrollbar-width: none; // Firefox
+  &::-webkit-scrollbar {
+    width: 0; // Safari and Chrome
+    height: 0;
+  }
+}
+
+@mixin default-section-padding {
+  padding-right: $padding__section--desktop;
+  padding-left: $padding__section--desktop;
+  @include xs-down {
+    padding-right: $padding__section--mobile;
+    padding-left: $padding__section--mobile;
+  }
+}

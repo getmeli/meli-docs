@@ -1,0 +1,22 @@
+//@import "../../../styles/variables";
+
+.header-logo {
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $color-additional-1;
+  margin-right: $gap;
+}
+
+.header-logo-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 1;
+  height: $header-icon-height;
+
+  img {
+    height: 100%;
+  }
+}

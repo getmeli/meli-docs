@@ -1,0 +1,17 @@
+.wrapper {
+  position: relative;
+  font-size: 30px;
+  line-height: 140%;
+  a {
+    position: absolute;
+    top: -5px;
+    left: -20px;
+    visibility: hidden;
+    transition: visibility $transition-base;
+  }
+  &:hover {
+    a {
+      visibility: visible;
+    }
+  }
+}

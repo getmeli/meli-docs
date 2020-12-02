@@ -1,0 +1,162 @@
+.wrapper {
+  position: relative;
+  padding: 30px 30px 30px 0;
+  width: 310px;
+  //min-height: 100%;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  border-right: 1px solid $color-additional-1;
+
+  @include md-down {
+    padding-top: 30px;
+  }
+  @include sm-down {
+    padding: 30px 0 0;
+    width: 100%;
+    border-right: 0;
+  }
+}
+
+.nav {
+  margin-top: 30px;
+
+  & > * + * {
+    margin-top: 20px;
+  }
+}
+
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  &-main {
+    padding-bottom: 25px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -30px;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(
+                      270.19deg,
+                      $color-additional-1 0%,
+                      rgba(238, 236, 249, 0) 100%
+      );
+    }
+
+    .title {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.menu {
+  & > * + * {
+    margin-top: 10px;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $color-primary;
+  text-decoration: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: $color-secondary;
+  text-decoration: none;
+  font-weight: normal;
+  text-transform: initial;
+  transition: color $transition-base;
+
+  &-active {
+    color: $color-accent-secondary;
+  }
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.arrow {
+  &-active {
+    transform: rotate(-90deg);
+  }
+}
+
+.dropdown {
+  display: none;
+  flex-direction: column;
+  padding-left: 15px;
+  margin-top: 10px;
+
+  & > * + * {
+    margin-top: 10px;
+  }
+
+  &-active {
+    display: flex;
+  }
+
+  .link-active {
+    &::before {
+      content: '●';
+      position: absolute;
+      left: -15px;
+      color: $color-accent-secondary;
+    }
+  }
+}
+
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $color-additional-3;
+    width: 0;
+    height: 0;
+  }
+}
+
+.select {
+  outline: none;
+  padding: 14px 15px 14px 45px;
+  line-height: 1;
+  background: $color-tertiary;
+  border: 2px solid $color-additional-1;
+  width: 100%;
+  border-radius: 0;
+  text-transform: capitalize;
+  transition: border-color $transition-base;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+
+  &:focus {
+    border-color: $color-accent-primary;
+  }
+}
