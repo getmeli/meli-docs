@@ -97,13 +97,13 @@ const HeaderMobile = props => {
                 custom={1}
               >
                 <a
-                  href="https://github.com/metroline/metroline"
+                  href="https://github.com/getmeli/meli"
                   className={`link ${styles.link}`}
                 >
                   Github
                 </a>
                 <a
-                  href="https://twitter.com/metrolineio"
+                  href="https://twitter.com/getmeli"
                   className={`link ${styles.link} ${styles.linkActive}`}
                 >
                   Twitter

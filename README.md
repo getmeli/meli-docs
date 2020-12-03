@@ -1,11 +1,10 @@
 <p align="center">
-  <img alt="Metroline Logo" src="https://raw.githubusercontent.com/metroline/metroline-brand/master/metroline-logo.svg" width="100" />
+  <a href="https://meli.sh">
+    <img alt="meli-logo" src="https://raw.githubusercontent.com/gomeli/meli-brand/latest/logo/meli-logo-circle-black.svg" width="100"/>
+  </a>
 </p>
-<h1 align="center">
-  Metroline Docs
-</h1>
-
-This repository contains the sources of  [https://docs.metroline.io](https://docs.metroline.io). Feel free to improve it !
+<h1 align="center">meli-docs</h1>
+<p align="center">Open source platform for deploying static sites and frontend applications.</p>
 
 ## Get started
 

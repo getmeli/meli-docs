@@ -26,7 +26,7 @@ export default function Header() {
             <>
               <div className={styles.headerMenu}>
                 <a
-                  href="https://github.com/metroline/metroline"
+                  href="https://github.com/getmeli/meli"
                   target="_blank"
                   rel="noopener noreferer"
                   className={styles.link}
@@ -34,7 +34,7 @@ export default function Header() {
                   <img src={GithubLogo} alt="Github"/>
                 </a>
                 <a
-                  href="https://twitter.com/metrolineio"
+                  href="https://twitter.com/getmeli"
                   target="_blank"
                   rel="noopener noreferer"
                   className={styles.link}

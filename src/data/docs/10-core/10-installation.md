@@ -41,7 +41,7 @@ services:
       MELI_JWT_SECRET: 896933b3545913aac9175890882c2ca3d861f6109dfe2c48f1b4c15686c59542
       # Generated with "openssl rand -hex 32"
       MELI_RUNNER_SECRET: 1f1b3c989bd7514797f5bc8da6a6dd8ac6acd08c3719acf47aa2a7f4aa1a7e57
-      MELI_MONGO_URI: mongodb://mongo:27017/metroline
+      MELI_MONGO_URI: mongodb://mongo:27017/meli
 
   # TODO caddy config
 
@@ -49,10 +49,10 @@ services:
     image: mongo:4.2-bionic
     restart: unless-stopped
     volumes:
-      - metroline-mongo:/data/db
+      - meli-mongo:/data/db
 
 volumes:
-  metroline-mongo:
+  meli-mongo:
 ```
 
 </div>
@@ -66,7 +66,7 @@ In **Settings / Applications**, add an OAuth application with the following sett
 | Field | Value |
 | ---- | ---- |
 | Application name   | Metroline | 
-| Authorization callback URL | `<metroline-server-url>/auth/gitea/oauth/callback` |
+| Authorization callback URL | `<meli-server-url>/auth/gitea/oauth/callback` |
 
 Copy your **Client ID** and **Client secret**.
 
@@ -102,7 +102,7 @@ From your Gitlab **admin area**, [add a new application](https://docs.gitlab.com
 | Field | Value |
 | ---- | ---- |
 | Name   | Metroline | 
-| Redirect URL | `<metroline-server-url>/auth/gitlab/oauth/callback` |
+| Redirect URL | `<meli-server-url>/auth/gitlab/oauth/callback` |
 | Trusted | true |
 | Scopes | api |
 
@@ -142,8 +142,8 @@ In Github, go to **Settings / Developer Settings / OAuth Apps** and add a new OA
 | Field | Value |
 | ---- | ---- |
 | Application name   | Metroline | 
-| Homepage URL   | https://metroline.io | 
-| Authorization callback URL | `<metroline-server-url>/auth/github/oauth/callback` |
+| Homepage URL   | https://meli.sh | 
+| Authorization callback URL | `<meli-server-url>/auth/github/oauth/callback` |
 
 Now, you can update your `docker-compose.yml`:
 

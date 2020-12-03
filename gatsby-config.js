@@ -119,16 +119,16 @@ if (
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    siteTitle: 'Metroline Docs', // <title>
+    siteTitle: 'Meli Docs', // <title>
     siteDescription:
-      'Documentation of Metroline, a Continuous Integration and Delivery platform build with Docker, Node, React, Socket.io and D3.',
+      'Documentation of Meli, an open source platform for deploying static sites and frontend applications.',
     // pathPrefix: "",
     siteImage: '/images/social-preview.png',
     siteLanguage: 'en',
     siteUrl: process.env.GATSBY_SITE_URL,
     /* author */
     authorName: 'Charlie Bravo',
-    authorTwitterAccount: '@metrolineio',
+    authorTwitterAccount: '@getmeli',
   },
   plugins,
 };

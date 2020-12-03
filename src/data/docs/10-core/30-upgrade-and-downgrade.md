@@ -10,9 +10,9 @@ excerpt: ''
 <div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
 
 ```shell script
-docker stop metroline/server
-docker pull metroline/server
-docker start metroline/server
+docker stop getmeli/api
+docker pull getmeli/api
+docker start getmeli/api
 ```
 
 </div>
@@ -29,26 +29,26 @@ For example, downgrading from 1.1.0 to 1.0.0:
 
 ```shell script
 # stop server
-docker stop metroline_server
+docker stop meli-server
 # backup volumes
-cp -r /data/metroline /data/metroline.bak
+cp -r /data/meli /data/meli.bak
 
 # downgrade to 1.0.1
 
 # rollback migrations of 1.1.0
-docker run --env-file .env --env MELI_MIGRATION_ROLLBACK=1 metroline/server:1.1.0
+docker run --env-file .env --env MELI_MIGRATION_ROLLBACK=1 getmeli/api:1.1.0
 # pull previous version (1.0.1)
-docker pull metroline/server:1.0.1
+docker pull getmeli/api:1.0.1
 
 # downgrade to 1.0.0
 
 # rollback migrations of 1.0.1
-docker run --env-file .env --env MELI_MIGRATION_ROLLBACK=1 metroline/server:1.0.1
+docker run --env-file .env --env MELI_MIGRATION_ROLLBACK=1 getmeli/api:1.0.1
 # pull previous version (1.0.0)
-docker pull metroline/server:1.0.0
+docker pull getmeli/api:1.0.0
 
 # start normally
-docker run --env-file .env metroline/server:1.0.0
+docker run --env-file .env getmeli/api:1.0.0
 ```
 
 </div>

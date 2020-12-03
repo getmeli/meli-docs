@@ -18,7 +18,7 @@ const Footer = props => (
         <div className={styles.footerCopyrightText}>
           Open Sourced on{' '}
           <a
-            href="https://github.com/metroline/metroline"
+            href="https://github.com/getmeli/meli"
             className={`link ${styles.companyLink}`}
             target="_blank"
           >

@@ -14,7 +14,7 @@ excerpt: ''
 
 **Description**:
 
-Enable debug using the popular [debug](https://www.npmjs.com/package/debug) Npm package. To limit logs to Metroline, use `DEBUG=metroline.server*`.
+Enable debug logs. We use the [debug](https://www.npmjs.com/package/debug) Npm package with scope `meli*`. To enable logs, use `DEBUG=meli*`.
 
 ## METROLINE\_JWT\_SECRET
 
@@ -174,7 +174,7 @@ Whether your Github instance should verify the SSL certificate of Metroline when
 
 **Description**:
 
-Port on which metroline is listening.
+Port on which Meli is listening.
 
 ## METROLINE\_HOST
 
@@ -184,7 +184,7 @@ Port on which metroline is listening.
 
 **Description**:
 
-Host of your metroline server. For example `metroline.company.com:3000`. You can include host and port, but it should not contain protocol as this is handled internally. This value is used for providing correct redirect URL when doing OAuth flows and should 
+Host of your meli server. For example `meli.company.com:3000`. You can include host and port, but it should not contain protocol as this is handled internally. This value is used for providing correct redirect URL when doing OAuth flows and should 
 
 ## METROLINE\_WEBHOOK\_HOST
 
@@ -194,7 +194,7 @@ Host of your metroline server. For example `metroline.company.com:3000`. You can
 
 **Description**:
 
-Host used for building the webhook URL when setting up a repository. This is useful when you are working locally as you've probably set [`MELI_HOST`](#metroline_host) to `localhost`. When your Git server calls webhooks, `localhost` will point to itself. The solution is to set `MELI_WEBHOOK_HOST` to `host.docker.internal` (OS X) or to your IP.
+Host used for building the webhook URL when setting up a repository. This is useful when you are working locally as you've probably set [`MELI_HOST`](#meli_host) to `localhost`. When your Git server calls webhooks, `localhost` will point to itself. The solution is to set `MELI_WEBHOOK_HOST` to `host.docker.internal` (OS X) or to your IP.
 
 ## METROLINE\_MIGRATE\_ROLLBACK
 
@@ -253,26 +253,6 @@ Each object of the array should have the following properties:
 | name | string | true | Global secret name. Should match `/^[a-zA-Z_][a-zA-Z0-9_]*$/`. |
 | value | string | true | Global secret value. |
 | protectedBranchesOnly | boolean | false | Whether this secret should be available on protected branches. |
-
-## METROLINE\_MAX\_JOBS\_PER\_PIPELINE
-
-**Default**: 100
-
-**Type**: number
-
-**Description**:
-
-Maximum number of jobs per pipeline. Indirectly, this determines the maximum numbr of job entries in your `.metroline.yml`.
-
-## METROLINE\_SYNC\_INTERVAL
-
-**Default**: 1800 (30 minutes)
-
-**Type**: number
-
-**Description**:
-
-How often (in seconds) user repositories should be synchronized.
 
 ## METROLINE\_CLEAN\_JOBS\_INTERVAL
 
