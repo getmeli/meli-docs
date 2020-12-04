@@ -1,7 +1,7 @@
 name: main
 on: [ push ]
 env:
-  GATSBY_SITE_URL: https://docs.meli.sh
+  GATSBY_SITE_URL: "https://docs.meli.sh"
   GATSBY_GITHUB_DOCS_URL: "https://github:com/getmeli/docs/tree/master/src/data"
   GATSBY_ALGOLIA_APP_ID: "CX0A5WLCWE"
   GATSBY_ALGOLIA_INDEX_NAME: "docs-prod"
@@ -22,7 +22,8 @@ jobs:
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
       - name: "publish"
         run: |
-          npx @getmeli/cli upload \
+          npm install @getmeli/cli --no-save
+          meli upload \
               --url https://cloud.meli.sh \
               --site ccb81d07-e898-4214-9adb-00399dff015d \
               --token $MELI_TOKEN \
