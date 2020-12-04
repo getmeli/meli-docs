@@ -22,11 +22,10 @@ jobs:
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
       - name: "publish"
         run: |
-          npm install @getmeli/cli --no-save
-          meli upload \
-              --url https://cloud.meli.sh \
-              --site ccb81d07-e898-4214-9adb-00399dff015d \
-              --token $MELI_TOKEN \
-              ./public
+          npx @getmeli/cli@next upload \
+            --url "https://cloud.meli.sh" \
+            --site "ccb81d07-e898-4214-9adb-00399dff015d" \
+            --token "$MELI_TOKEN" \
+            ./public
         env:
           MELI_TOKEN: ${{ secrets.MELI_TOKEN }}
