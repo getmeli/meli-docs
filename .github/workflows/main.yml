@@ -20,8 +20,12 @@ jobs:
         run: npm run build
         env:
           ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
-#      - name: "publish"
-#        # TODO add MELI_TOKEN
-#        run: npx @getmeli/cli upload -t $MELI_TOKEN -p $MELI_PROJECT ./build
-#        env:
-#          MELI_PROJECT: "xxxxxxx"
+      - name: "publish"
+        run: |
+          npx @meli/cli upload \
+              --url https://cloud.meli.sh \
+              --site ccb81d07-e898-4214-9adb-00399dff015d \
+              --token $MELI_TOKEN \
+              <path>
+        env:
+          MELI_TOKEN: ${{ secrets.MELI_TOKEN }}

@@ -4,7 +4,7 @@ excerpt: 'Meli is an open source platform built for deploying static sites and f
 isHomePage: true
 ---
 
-# Metroline
+# Meli
 
 Meli is an open source platform built for deploying static sites and frontend applications. 
 
@@ -13,4 +13,6 @@ Meli uses [Caddy](https://caddyserver.com/) to serve deployed sites, and offers 
 > Found a security issue ? Please [let us know](https://github.com/getmeli/meli/security/advisories/new) !
 
 - [Installation](/core/installation)
+- [API](/api/api)
+- [Webhooks](/hooks/web)
 
