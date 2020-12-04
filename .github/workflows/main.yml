@@ -26,6 +26,6 @@ jobs:
               --url https://cloud.meli.sh \
               --site ccb81d07-e898-4214-9adb-00399dff015d \
               --token $MELI_TOKEN \
-              <path>
+              ./public
         env:
           MELI_TOKEN: ${{ secrets.MELI_TOKEN }}
