@@ -7,6 +7,21 @@ excerpt: ''
 
 # TLDR;
 
+Configure DNS records to point to your Meli server:
+
+<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+
+```txt
+mymeli.com IN A 1.2.3.4
+*.mymeli.com IN A 1.2.3.4
+```
+
+</div>
+
+Deploy with `docker-compose`: 
+
+<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+
 ```
 version: "3"
 
@@ -32,6 +47,8 @@ services:
     ports:
       - 127.0.0.1:27017:27017
 ```
+
+</div>
 
 # TSWM;
 
