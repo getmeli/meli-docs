@@ -18,7 +18,7 @@ mymeli.com IN A 1.2.3.4
 
 </div>
 
-Deploy with `docker-compose`: 
+Deploy with `docker-compose`:
 
 <div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
 
@@ -47,6 +47,12 @@ services:
     ports:
       - 127.0.0.1:27017:27017
 ```
+
+</div>
+
+<div class="blockquote" data-props='{ "mod": "info" }'>
+
+To prevent your users to create organizations, we set `MELI_MAX_ORGS` to `1` by default. You can disable this by setting `MELI_MAX_ORGS=0`.
 
 </div>
 
