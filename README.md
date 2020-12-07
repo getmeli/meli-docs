@@ -34,7 +34,19 @@ Blank lines are important.
 <div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
 
 \`\`\`yaml
-#Your code here
+# Your code here
+\`\`\`
+
+</div>
+```
+
+To add a file name:
+
+```
+<div class="code-group" data-props='{ "lineNumbers": ["true"], "labels": ["my-file.yaml"] }'>
+
+\`\`\`yaml
+# Your code here
 \`\`\`
 
 </div>
