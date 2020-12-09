@@ -82,7 +82,7 @@ const Sidebar = ({ sidebar, slug }) => {
 
   const navigateMobile = () => {
     setSelectedPath(selectMenu.current.value);
-    navigate(selectMenu.current.value);
+    navigate(selectMenu.current.value).catch(console.error);
   };
 
   return (
@@ -96,16 +96,16 @@ const Sidebar = ({ sidebar, slug }) => {
               .values(sidebar)
               .filter(({ children }) => Object.keys(children).length !== 0)
               .map(
-                ({ meta: { sidebarTitle, title }, name, children }, i) => (
+                ({ meta: { sidebarTitle, title, path }, name, children }, i) => (
                   <div
                     key={name}
                     className={cx('section', {
                       'section-main': i === 0,
                     })}
                   >
-                    <div className={styles.title}>
+                    <a className={styles.title} href={path}>
                       {sidebarTitle || title || name}
-                    </div>
+                    </a>
                     <div
                       className={cx('dropdown', {
                         [styles.dropdownActive]: true,
