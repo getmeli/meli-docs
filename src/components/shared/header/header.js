@@ -6,6 +6,7 @@ import HeaderLogo from '../header-logo';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { GithubStars } from './github-stars/github-stars';
+import { GITHUB_URL, TWITTER_URL } from '../../../constants';
 
 export default function Header() {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
@@ -27,7 +28,7 @@ export default function Header() {
             <>
               <div className={styles.headerMenu}>
                 <a
-                  href="https://twitter.com/getmeli"
+                  href={TWITTER_URL}
                   target="_blank"
                   rel="noopener noreferer"
                 >
@@ -40,7 +41,7 @@ export default function Header() {
                   </div>
                 </a>
                 <a
-                  href="https://github.com/getmeli/meli"
+                  href={GITHUB_URL}
                   target="_blank"
                   rel="noopener noreferer"
                   className={styles.linkWithIcon}

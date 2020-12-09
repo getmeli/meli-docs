@@ -1,7 +1,7 @@
 ---
 title: 'Server Environment Reference'
 sidebarTitle: 'Server'
-excerpt: ''
+excerpt: 'Environment variables of Meli API'
 ---
 
 # Server Environment Reference
@@ -18,7 +18,7 @@ excerpt: ''
 
 Enable debug logs. We use the [debug](https://www.npmjs.com/package/debug) Npm package with scope `meli*`. To enable logs, use `DEBUG=meli*`.
 
-## MELI_PORT
+## MELI\_PORT
 
 **Default**: 3001
 
@@ -28,9 +28,9 @@ Enable debug logs. We use the [debug](https://www.npmjs.com/package/debug) Npm p
 
 **Description**:
 
-Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -hex 32`.
+The port on which Meli is listening.
 
-## MELI_URL
+## MELI\_URL
 
 **Default**: undefined
 
@@ -40,23 +40,11 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Public URL where Meli is served.
 
+## MELI\_URL\_INTERNAL
 
-## MELI_URL_INTERNAL
-
-**Default**: null
-
-**Required**: no
-
-**Type**: string
-
-**Description**:
-
-
-
-## MELI_UI_URL
-
-**Default**: null
+**Default**: `MELI_URL`
 
 **Required**: no
 
@@ -64,23 +52,11 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Setting this variable only makes sense when Caddy is deployed as a standalone container. It sets the URL where the Meli API can be accessed internally. In local development, you would set this to `http://host.docker.internal:3001`. In a production `docker-compose.yml`, you would set it to something like `http://api` if your API container is named `api`.
 
+## MELI\_UI\_URL
 
-## MELI_UI_URL_INTERNAL
-
-**Default**: null
-
-**Required**: no
-
-**Type**: string
-
-**Description**:
-
-
-
-## MELI_SITES_URL
-
-**Default**: null
+**Default**: `MELI_URL`
 
 **Required**: no
 
@@ -88,9 +64,33 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Public URL where the UI is served. Setting this variable makes sense when you are deploying the UI elsewhere than on `MELI_URL`.
 
+## MELI\_UI\_URL\_INTERNAL
 
-## MELI_STANDALONE
+**Default**: `MELI_URL`
+
+**Required**: no
+
+**Type**: string
+
+**Description**:
+
+Setting this variable only makes sense when Caddy is deployed as a standalone container. It sets the URL where the Meli UI can be accessed internally. In local development, you would set this to `http://host.docker.internal:3000`. In a production `docker-compose.yml`, you would set it to something like `http://ui` if your UI container is named `ui`.
+
+## MELI\_SITES\_URL
+
+**Default**: `MELI_URL`
+
+**Required**: no
+
+**Type**: string
+
+**Description**:
+
+This is where your sites are served. 
+
+## MELI\_STANDALONE
 
 **Default**: false
 
@@ -100,9 +100,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+When enabled, Meli will not configure the UI and API in Caddy. This variables only makes sense when you are deploying all containers separately.
 
-
-## MELI_UI_DIR
+## MELI\_UI\_DIR
 
 **Default**: undefined
 
@@ -112,9 +112,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+When set, the UI will be served from this path. Otherwise, it is reverse-proxied to `MELI_UI_URL_INTERNAL`.
 
-
-## MELI_JWT_SECRET
+## MELI\_JWT\_SECRET
 
 **Default**: undefined
 
@@ -124,11 +124,11 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -hex 32`.
 
+## MELI\_JWT\_TOKEN\_EXPIRATION
 
-## MELI_JWT_TOKEN_EXPIRATION
-
-**Default**: 2592000
+**Default**: 2592000000 (30 days)
 
 **Required**: yes
 
@@ -136,9 +136,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Expiration time (in ms) for JWT tokens.
 
-
-## MELI_GITLAB_URL
+## MELI\_GITLAB\_URL
 
 **Default**: https://gitlab.com
 
@@ -148,21 +148,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Your Gitlab URL.
 
-
-## MELI_GITLAB_CLIENT_ID
-
-**Default**: undefined
-
-**Required**: yes
-
-**Type**: string
-
-**Description**:
-
-
-
-## MELI_GITLAB_CLIENT_SECRET
+## MELI\_GITLAB\_CLIENT\_ID
 
 **Default**: undefined
 
@@ -172,9 +160,21 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Your Gitlab app Client ID.
 
+## MELI\_GITLAB\_CLIENT\_SECRET
 
-## MELI_GITEA_URL
+**Default**: undefined
+
+**Required**: yes
+
+**Type**: string
+
+**Description**:
+
+Your Gitlab app Client Secret.
+
+## MELI\_GITEA\_URL
 
 **Default**: https://gitea.com
 
@@ -184,9 +184,21 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Your Gitea URL.
 
+## MELI\_GITLAB\_GROUPS
 
-## MELI_GITEA_CLIENT_ID
+**Default**: undefined
+
+**Required**: no
+
+**Type**: array
+
+**Description**:
+
+Comma-separated list of Gitlab groups. Allows you to restrict login to only members of the given groups.
+
+## MELI\_GITEA\_CLIENT\_ID
 
 **Default**: undefined
 
@@ -196,9 +208,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Your Gitea app Client ID.
 
-
-## MELI_GITEA_CLIENT_SECRET
+## MELI\_GITEA\_CLIENT\_SECRET
 
 **Default**: undefined
 
@@ -208,9 +220,21 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Your Gitea app Client Secret.
 
+## MELI\_GITEA\_ORGS
 
-## MELI_GITHUB_URL
+**Default**: undefined
+
+**Required**: no
+
+**Type**: array
+
+**Description**:
+
+Comma-separated list of Gitea organizations. Allows you to restrict login to only members of the given organizations.
+
+## MELI\_GITHUB\_URL
 
 **Default**: https://github.com
 
@@ -220,21 +244,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Your Github URL.
 
-
-## MELI_GITHUB_CLIENT_ID
-
-**Default**: undefined
-
-**Required**: yes
-
-**Type**: string
-
-**Description**:
-
-
-
-## MELI_GITHUB_CLIENT_SECRET
+## MELI\_GITHUB\_CLIENT\_ID
 
 **Default**: undefined
 
@@ -244,9 +256,33 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Your Github app Client ID.
 
+## MELI\_GITHUB\_CLIENT\_SECRET
 
-## MELI_GOOGLE_CLIENT_ID
+**Default**: undefined
+
+**Required**: yes
+
+**Type**: string
+
+**Description**:
+
+Your Github app Client Secret.
+
+## MELI\_GITHUB\_ORGS
+
+**Default**: undefined
+
+**Required**: no
+
+**Type**: array
+
+**Description**:
+
+Comma-separated list of Github organizations. Allows you to restrict login to only members of the given organizations.
+
+## MELI\_GOOGLE\_CLIENT\_ID
 
 **Default**: undefined
 
@@ -256,9 +292,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Your Google app Client ID.
 
-
-## MELI_GOOGLE_CLIENT_SECRET
+## MELI\_GOOGLE\_CLIENT\_SECRET
 
 **Default**: undefined
 
@@ -268,9 +304,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Your Google app Client Secret.
 
-
-## MELI_MONGO_URI
+## MELI\_MONGO\_URI
 
 **Default**: undefined
 
@@ -280,9 +316,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+URI of Mongo instance where Meli should store its data.
 
-
-## MELI_MIGRATE_ROLLBACK
+## MELI\_MIGRATE\_ROLLBACK
 
 **Default**: false
 
@@ -292,69 +328,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Forces the server to rollback the last migration, then exit. Use this when you're trying to [downgrade](/get-started/upgrade-and-downgrade).
 
-
-## MELI_GITHUB_ORGS
-
-**Default**: undefined
-
-**Required**: no
-
-**Type**: array
-
-**Description**:
-
-
-
-## MELI_GITEA_ORGS
-
-**Default**: undefined
-
-**Required**: no
-
-**Type**: array
-
-**Description**:
-
-
-
-## MELI_GITLAB_GROUPS
-
-**Default**: undefined
-
-**Required**: no
-
-**Type**: array
-
-**Description**:
-
-
-
-## MELI_SSL_KEY
-
-**Default**: undefined
-
-**Required**: yes
-
-**Type**: string
-
-**Description**:
-
-
-
-## MELI_SSL_CERT
-
-**Default**: undefined
-
-**Required**: yes
-
-**Type**: string
-
-**Description**:
-
-
-
-## MELI_COOKIE_SAMESITE
+## MELI\_COOKIE\_SAMESITE
 
 **Default**: null
 
@@ -364,9 +340,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Allows you to set the [SameSite](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite) property for cookies defined by the server. Useful when your Metroline server has a different host or URL than your UI.
 
-
-## MELI_COOKIE_SECURE
+## MELI\_COOKIE\_SECURE
 
 **Default**: false
 
@@ -376,9 +352,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Allows you to set the [Secure](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) property for cookies defined by the server. Some browsers, like Chrome, require it to be `true` to use cookies for cross site requests (which implies you need a secure backend).
 
-
-## MELI_RATE_LIMIT_WINDOW
+## MELI\_RATE\_LIMIT\_WINDOW
 
 **Default**: 60000
 
@@ -388,9 +364,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Window size for rate limiting, in ms.
 
-
-## MELI_RATE_LIMIT_MAX_PER_WINDOW
+## MELI\_RATE\_LIMIT\_MAX\_PER\_WINDOW
 
 **Default**: 100
 
@@ -400,9 +376,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Max number of requests allows in the rate limiting window.
 
-
-## MELI_PROMETHEUS_HOST
+## MELI\_PROMETHEUS\_HOST
 
 **Default**: localhost
 
@@ -412,9 +388,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Host where the Prometheus server should listen.
 
-
-## MELI_PROMETHEUS_PORT
+## MELI\_PROMETHEUS\_PORT
 
 **Default**: 3002
 
@@ -424,9 +400,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Port where the Prometheus server should listen.
 
-
-## MELI_PROMETHEUS_REFRESH_RATE
+## MELI\_PROMETHEUS\_REFRESH\_RATE
 
 **Default**: 10000
 
@@ -436,9 +412,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+How often to refresh Prometheus metrics.
 
-
-## MELI_PROMETHEUS_METRICS_PREFIX
+## MELI\_PROMETHEUS\_METRICS\_PREFIX
 
 **Default**: meli_server_
 
@@ -448,9 +424,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Prefix used for Prometheus metrics.
 
-
-## MELI_REDIS_URL
+## MELI\_REDIS\_URL
 
 **Default**: undefined
 
@@ -460,9 +436,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Redis URL for proxying websockets connections. This allows you to run multiple instance of the Meli API in parallel.
 
-
-## MELI_HOOK_TIMEOUT
+## MELI\_HOOK\_TIMEOUT
 
 **Default**: 5000
 
@@ -472,9 +448,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+How much time hook requets should wait before failing.
 
-
-## MELI_MAIL_HOST
+## MELI\_MAIL\_HOST
 
 **Default**: undefined
 
@@ -484,9 +460,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Mail host.
 
-
-## MELI_MAIL_PORT
+## MELI\_MAIL\_PORT
 
 **Default**: undefined
 
@@ -496,21 +472,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Mail port.
 
-
-## MELI_MAIL_USERNAME
-
-**Default**: undefined
-
-**Required**: no
-
-**Type**: string
-
-**Description**:
-
-
-
-## MELI_MAIL_PASSWORD
+## MELI\_MAIL\_USERNAME
 
 **Default**: undefined
 
@@ -520,9 +484,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Mail username.
 
-
-## MELI_MAIL_FROM
+## MELI\_MAIL\_PASSWORD
 
 **Default**: undefined
 
@@ -532,9 +496,21 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Mail password.
 
+## MELI\_MAIL\_FROM
 
-## MELI_MAIL_SUBJECT_PREFIX
+**Default**: undefined
+
+**Required**: no
+
+**Type**: string
+
+**Description**:
+
+Mail form. Some mail providers (like OVH) force this email to equal the mail username. 
+
+## MELI\_MAIL\_SUBJECT\_PREFIX
 
 **Default**: Meli |
 
@@ -544,11 +520,11 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Mail subject prefix.
 
+## MELI\_MAIL\_TEMPLATE\_DIR
 
-## MELI_MAIL_TEMPLATE_DIR
-
-**Default**: /Users/geoffroy/dev/git/meli/meli/src/env/emails/templates
+**Default**: ./emails/templates
 
 **Required**: no
 
@@ -556,9 +532,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Directory where mail templates can be found.
 
-
-## MELI_SENTRY_ENABLED
+## MELI\_SENTRY\_ENABLED
 
 **Default**: true
 
@@ -568,21 +544,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Whether to enabled [Sentry](https://sentry.io/).
 
-
-## MELI_RESTRICTED_IPS
-
-**Default**: none
-
-**Required**: no
-
-**Type**: array
-
-**Description**:
-
-
-
-## MELI_RESTRICTED_DOMAINS
+## MELI\_RESTRICTED\_IPS
 
 **Default**: none
 
@@ -592,21 +556,31 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Hook URLs are resolved and checked against these restriected IPs.
 
+<div class="blockquote" data-props='{ "mod": "info" }'>
 
-## MELI_CADDY_DOCKER
+Partially implemented, not yet working.
 
-**Default**: true
+</div>
 
-**Required**: yes
+## MELI\_RESTRICTED\_DOMAINS
 
-**Type**: boolean
+**Default**: none
+
+**Required**: no
+
+**Type**: array
 
 **Description**:
 
+<div class="blockquote" data-props='{ "mod": "info" }'>
 
+Partially implemented, not yet working.
 
-## MELI_CADDY_DIR
+</div>
+
+## MELI\_CADDY\_DIR
 
 **Default**: /sites
 
@@ -616,9 +590,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Directory where Caddy looks for sites.
 
-
-## MELI_SITES_DIR
+## MELI\_SITES\_DIR
 
 **Default**: /sites
 
@@ -628,9 +602,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Directory where Meli stores sites.
 
-
-## MELI_CADDY_ADMIN_API_URL
+## MELI\_CADDY\_ADMIN\_API\_URL
 
 **Default**: http://localhost:2019
 
@@ -640,9 +614,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Admin API of Caddy. If Caddy runs in a standalone container, make sure to expose the admin API as it listens to `localhost` by default.
 
-
-## MELI_TMP_DIRECTORY
+## MELI\_TMP\_DIRECTORY
 
 **Default**: /var/folders/ff/v59bv_992tz5yq0sg7gptp300000gn/T
 
@@ -652,11 +626,11 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Where uploaded files are stored before being processed.
 
+## MELI\_STATIC\_DIR
 
-## MELI_STATIC_DIR
-
-**Default**: /Users/geoffroy/dev/git/meli/meli/src/env/public
+**Default**: ./public
 
 **Required**: no
 
@@ -664,9 +638,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Where the Meli API serves static content. This is used to server generic pages such as a 404.html page.
 
-
-## MELI_INVITE_EXPIRATION_TIME
+## MELI\_INVITE\_EXPIRATION\_TIME
 
 **Default**: 86400000
 
@@ -676,9 +650,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Amount of time (in ms) before an invitation expires.
 
-
-## MELI_BCRYPT_SALTROUNDS
+## MELI\_BCRYPT\_SALTROUNDS
 
 **Default**: 10
 
@@ -688,21 +662,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Number of salt rounds for hashing passwords with Bcrypt.
 
-
-## MELI_ACME_SERVER
-
-**Default**: undefined
-
-**Required**: no
-
-**Type**: string
-
-**Description**:
-
-
-
-## MELI_ACME_CA_PATH
+## MELI\_ACME\_SERVER
 
 **Default**: undefined
 
@@ -712,9 +674,21 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+The ACME server to use for obtaining SSL certificates. When this variable is not set, we use LetsEncrypt production environment. We recommend setting this variable to the [LetsEncrypt staging environment]()https://letsencrypt.org/docs/staging-environment/ when testing Meli. See [here](/configuration/ssl).
 
+## MELI\_ACME\_CA\_PATH
 
-## MELI_AXIOS_TIMEOUT
+**Default**: undefined
+
+**Required**: no
+
+**Type**: string
+
+**Description**:
+
+Allows you to tell Meli to generate self-signed certificates. This is the path to the CA certificate to use.
+
+## MELI\_AXIOS\_TIMEOUT
 
 **Default**: 10000
 
@@ -724,21 +698,9 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Timeout for HTTP calls made with Axios.
 
-
-## MELI_USER
-
-**Default**: undefined
-
-**Required**: no
-
-**Type**: string
-
-**Description**:
-
-
-
-## MELI_PASSWORD
+## MELI\_USER
 
 **Default**: undefined
 
@@ -748,9 +710,21 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 
 **Description**:
 
+Username for in-memory authentication.
 
+## MELI\_PASSWORD
 
-## MELI_MAX_ORGS
+**Default**: undefined
+
+**Required**: no
+
+**Type**: string
+
+**Description**:
+
+Password for in-memory authentication.
+
+## MELI\_MAX\_ORGS
 
 **Default**: 1
 
@@ -759,3 +733,5 @@ Secret used to sign and verify JWT tokens. Can be generated with `openssl rand -
 **Type**: number
 
 **Description**:
+
+Maximum number of organizations that can be created on this Meli instance. Setting this value to `0` will disable the limit.

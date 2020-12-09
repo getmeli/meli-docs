@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './footer.module.scss';
+import { GITHUB_URL, TWITTER_URL } from '../../../constants';
 
 const Footer = props => (
   <footer className={styles.wrapper}>
@@ -16,9 +17,15 @@ const Footer = props => (
           </a>
         </div>
         <div className={styles.footerCopyrightText}>
-          Open Sourced on{' '}
           <a
-            href="https://github.com/getmeli/meli"
+            href={TWITTER_URL}
+            className={`link ${styles.companyLink}`}
+            target="_blank"
+          >
+            Twitter
+          </a>
+          <a
+            href={GITHUB_URL}
             className={`link ${styles.companyLink}`}
             target="_blank"
           >
