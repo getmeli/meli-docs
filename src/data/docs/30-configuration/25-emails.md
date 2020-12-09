@@ -7,7 +7,7 @@ excerpt: 'Learn how to configure emails for Meli'
 
 By default Meli prints emails to the console. However, you can configure email credentials to a proper email service as follows:
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+<div class="code-group">
 
 ```shell script
 MELI_MAIL_FROM: noreply@meli.sh

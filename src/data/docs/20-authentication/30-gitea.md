@@ -23,7 +23,7 @@ If you've changed [`REFRESH_TOKEN_EXPIRATION_TIME`](https://docs.gitea.io/en-us/
 
 Now, you can update your `docker-compose.yml`:
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+<div class="code-group">
 
 ```yaml
 # ...

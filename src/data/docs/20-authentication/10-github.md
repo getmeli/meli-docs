@@ -16,7 +16,7 @@ In Github, go to **Settings / Developer Settings / OAuth Apps** and add a new OA
 
 Now, you can update your `docker-compose.yml`:
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>`
+<div class="code-group">`
 
 ```yaml
 # ...

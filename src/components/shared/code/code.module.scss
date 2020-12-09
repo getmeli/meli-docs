@@ -1,5 +1,8 @@
 $code-block-font-size: $font-size-base;
 $code-block-line-height: 130%;
+$padding: 20px;
+$padding-x: 1.5rem;
+$padding-y: 2.5rem;
 
 .code {
   flex-grow: 1;
@@ -32,7 +35,7 @@ $code-block-line-height: 130%;
       display: block;
       font-family: $font-family-secondary;
       color: $color-tertiary;
-      padding: 20px 20px 14px 10px;
+      padding: $padding-x $padding-y;
       font-size: $code-block-font-size;
       line-height: $code-block-line-height;
     }
@@ -72,7 +75,7 @@ $code-block-line-height: 130%;
 
     .line-numbers-rows {
       font-family: $font-family-secondary;
-      padding: 20px 8px 14px 20px;
+      padding: $padding-y 0 $padding-y $padding-x;
       border-right: none !important;
       background-color: rgba($color-tertiary, 0.05);
       border-radius: 5px 0 0 5px;

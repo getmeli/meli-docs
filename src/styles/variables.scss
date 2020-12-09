@@ -1,10 +1,10 @@
 //Colors
-$color-primary: #1b0449;
+$color-primary: #303030;
 $color-secondary: #796c93;
 $color-tertiary: #ffffff;
 
-$color-accent-primary: #661aff;
-$color-accent-secondary: #ff7f66;
+$color-accent-primary: #28161C;
+$color-accent-secondary: #ED5E93;
 
 $color-additional-1: #eeecf9;
 $color-additional-2: #f8f5ff;
@@ -13,27 +13,28 @@ $color-additional-4: #a894d1;
 
 //Fonts
 $font-family-primary: 'Source Sans Pro', Arial, sans-serif;
-$font-family-secondary: 'Fira Code', monospace;
+//$font-family-primary: 'Graphik', Arial, sans-serif;
+$font-family-secondary: 'Source Code Pro', monospace;
 
 $font-size-base: 15px;
 $line-height-base: 160%;
 
-$font-size-xl: 35px;
+$font-size-xl: 40px;
 $line-height-xl: 140%;
 
-$font-size-lg: 22px;
+$font-size-lg: 30px;
 $line-height-lg: 140%;
 
-$font-size-sm: 18px;
+$font-size-sm: 20px;
 $line-height-sm: 160%;
 
-$font-size-xs: 12px;
+$font-size-xs: 14px;
 $line-height-xs: 160%;
 
-$doc-font-size-xl: 30px;
-$doc-font-size-lg: 26px;
-$doc-font-size-md: 22px;
-$doc-font-size-sm: 18px;
+$doc-font-size-xl: 40px;
+$doc-font-size-lg: 30px;
+$doc-font-size-md: 20px;
+$doc-font-size-sm: 14px;
 
 // overwriting initial values
 $gap: 20px;
@@ -64,3 +65,5 @@ $transition-time-long: 0.6s;
 
 $header-icon-height: 30px;
 $header-height: 70px;
+
+$sidebar-with: 310px;

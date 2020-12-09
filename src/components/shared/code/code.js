@@ -6,10 +6,10 @@ import styles from './code.module.scss';
 
 const cx = classNames.bind(styles);
 
-const Code = ({ children, noLineNumbers }) => {
+const Code = ({ children, noLineNumbers, className }) => {
   return (
     <div
-      className={cx('code', styles.codeContainer, {
+      className={cx('code', styles.codeContainer, className, {
         noLineNumbers: noLineNumbers,
       })}
       dangerouslySetInnerHTML={{ __html: children }}

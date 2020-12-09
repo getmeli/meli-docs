@@ -25,7 +25,7 @@ You may need to check "Allow requests to the local network from web hooks and se
 
 Now, you can update your `docker-compose.yml`:
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+<div class="code-group">
 
 ```yaml
 # ...

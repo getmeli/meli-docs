@@ -13,14 +13,14 @@ excerpt: 'Learn how to upload a site to Meli'
 1. In `my-site`, go to the **Settings** tab, and copy the **Site ID**
 1. Assuming your static site has been built into a directory named `public`, run:
 
-    <div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+    <div class="code-group">
     
     ```shell script
     npx @getmeli/cli upload \
         --url http://localhost:80 \
         --site <site-id> \
-        --branch "latest" \
         --token <site-token> \
+        --branch "latest" \
         ./public
     ```
     

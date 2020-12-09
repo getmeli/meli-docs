@@ -7,7 +7,7 @@ excerpt: ''
 
 ## Upgrade
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+<div class="code-group">
 
 ```shell script
 docker stop getmeli/api
@@ -25,7 +25,7 @@ Downgrading must be done **one version by one version**. For example, say you ar
 
 For example, downgrading from 1.1.0 to 1.0.0:
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+<div class="code-group">
 
 ```shell script
 # stop server

@@ -31,6 +31,18 @@ isHomePage: true | false
 Blank lines are important.
 
 ```markdown
+<div class="code-group">
+
+\`\`\`yaml
+# Your code here
+\`\`\`
+
+</div>
+```
+
+To show line numbers:
+
+```markdown
 <div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
 
 \`\`\`yaml

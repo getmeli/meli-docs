@@ -62,12 +62,12 @@ const CodeGroup = ({
         {`.${
           styles.itemsContainer
         }.${randomKey} > div:nth-child(${currentIndex +
-          1}) { display: block; }`}
+        1}) { display: block; }`}
       </style>
       <div className={`${styles.itemsContainer} ${randomKey}`}>
         {codeElements.map((codeElement, i) => (
           <WithCopyButton dataToCopy={codeElement.innerText} key={`cb-${i}`}>
-            <Code noLineNumbers={!lineNumbers[i]}>
+            <Code noLineNumbers={!lineNumbers[i]} className="code-group-inner">
               {modifiedGroups[i].outerHTML}
             </Code>
           </WithCopyButton>

@@ -13,7 +13,9 @@ excerpt: 'Authenticating to Meli using Google'
 
 Now, you can update your `docker-compose.yml`:
 
-```
+<div class="code-group">
+
+```yaml
 services:
   # ...
   server:
@@ -23,3 +25,5 @@ services:
       MELI_GOOGLE_CLIENT_ID: <your-google-oauth-app-client-id>
       MELI_GOOGLE_CLIENT_SECRET: <your-google-oauth-app-client-secret>
 ``` 
+
+</div>

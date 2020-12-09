@@ -10,7 +10,7 @@ This is the most simple way to authenticate in Meli if you're working by yoursel
 
 Set the following environment variables:
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+<div class="code-group">
 
 ```dotenv
 MELI_USER=user

@@ -1,42 +1,31 @@
 .wrapper {
   margin-bottom: 120px;
 
-  :global {
-    .language-text {
-      color: $color-primary;
-      background-color: transparentize($color-accent-primary, 0.96);
-      border: 1px solid transparentize($color-accent-primary, 0.96);
-      border-radius: 6px;
-      padding: 1px 6px;
-      margin-left: 3px;
-      margin-right: 3px;
-    }
-  }
-
   h1 {
     font-size: $font-size-xl;
     line-height: $line-height-lg;
-    font-weight: 500;
+    font-weight: bold;
   }
 
   h2 {
     font-size: $doc-font-size-lg;
     line-height: $line-height-lg;
-    font-weight: 500;
+    font-weight: bold;
   }
 
   h3 {
     font-size: $doc-font-size-md;
-    font-weight: 500;
+    font-weight: bold;
   }
 
   h4 {
     font-size: $doc-font-size-sm;
-    font-weight: 500;
+    font-weight: bold;
   }
 
   h5 {
     font-size: $doc-font-size-sm;
+    font-weight: bold;
   }
 
   ul {
@@ -86,6 +75,18 @@
           color: $color-accent-primary;
         }
       }
+    }
+  }
+
+  :global {
+    .language-text:not(pre code) {
+      color: $color-primary;
+      background-color: transparentize($color-accent-primary, 0.96);
+      border: 1px solid transparentize($color-accent-primary, 0.96);
+      border-radius: 6px;
+      padding: 1px 6px;
+      margin-left: 3px;
+      margin-right: 3px;
     }
   }
 

@@ -24,7 +24,7 @@ To verify the integrity of a webhook:
 
 Reference NodeJS TypeScript implementation:
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>`
+<div class="code-group">`
 
 ```ts
 import { createHmac } from 'crypto';
@@ -47,7 +47,7 @@ async function verifyWebhookSignature(req: Request, secret: string): Promise<boo
 
 In ExpressJS, the raw body of a request can be obtained as follows:
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>`
+<div class="code-group">`
 
 ```js
 app.use(json({
@@ -66,7 +66,7 @@ app.use(json({
 
 ## Example ExpressJS application
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>`
+<div class="code-group">`
 
 ```js
 require('dotenv').config();

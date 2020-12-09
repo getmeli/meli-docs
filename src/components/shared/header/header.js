@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Media from 'react-media';
 import HeaderMobile from 'components/shared/header-mobile';
-import GithubLogo from 'images/github.svg';
-import TwitterLogo from 'images/twitter.svg';
 import styles from './header.module.scss';
 import HeaderLogo from '../header-logo';
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { GithubStars } from './github-stars/github-stars';
 
 export default function Header() {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
@@ -26,20 +27,32 @@ export default function Header() {
             <>
               <div className={styles.headerMenu}>
                 <a
-                  href="https://github.com/getmeli/meli"
-                  target="_blank"
-                  rel="noopener noreferer"
-                  className={styles.link}
-                >
-                  <img src={GithubLogo} alt="Github"/>
-                </a>
-                <a
                   href="https://twitter.com/getmeli"
                   target="_blank"
                   rel="noopener noreferer"
-                  className={styles.link}
                 >
-                  <img src={TwitterLogo} alt="Twitter"/>
+                  <div className={styles.iconLink}>
+                    <FontAwesomeIcon
+                      icon={faTwitter}
+                      className={styles.icon}
+                      fixedWidth
+                    />
+                  </div>
+                </a>
+                <a
+                  href="https://github.com/getmeli/meli"
+                  target="_blank"
+                  rel="noopener noreferer"
+                  className={styles.linkWithIcon}
+                >
+                  <div className={styles.iconLink}>
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      className={styles.icon}
+                      fixedWidth
+                    />
+                  </div>
+                  <GithubStars className={styles.stars}/>
                 </a>
               </div>
             </>

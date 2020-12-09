@@ -9,7 +9,7 @@ excerpt: ''
 
 Configure DNS records to point to your Meli server:
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+<div class="code-group">
 
 ```txt
 meli.company.com IN A 1.2.3.4
@@ -20,7 +20,7 @@ meli.company.com IN A 1.2.3.4
 
 Deploy with `docker-compose`:
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+<div class="code-group">
 
 ```yaml
 version: "3"
@@ -37,7 +37,7 @@ services:
       MELI_MONGO_URI: mongodb://mongo:27017/meli
       # openssl rand -hex 32
       MELI_JWT_SECRET: changeMe
-      # for other authentication methods, see https://docs.meli.sh/authentication
+      # https://docs.meli.sh/authentication
       MELI_USER: user
       MELI_PASSWORD: changeMe
     volumes:

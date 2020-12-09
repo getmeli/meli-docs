@@ -2,7 +2,6 @@
   position: relative;
   z-index: 1;
   will-change: transform;
-  border-bottom: 1px solid $color-additional-1;
   height: $header-height;
 }
 
@@ -26,8 +25,6 @@
 
 .link {
   position: relative;
-  //padding: 20px 0;
-  color: $color-tertiary;
   margin-right: 15px;
   transition: color $transition-base;
 
@@ -56,11 +53,27 @@
       }
     }
   }
+}
 
-  img {
-    height: $header-icon-height;
-    width: auto;
+.linkWithIcon {
+  display: flex;
+  align-items: center;
+}
+
+.iconLink {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 0 5px;
+  background: #000000;
+  color: white;
+
+  .icon {
     display: block;
+    height: 65%;
   }
 }
 
@@ -84,4 +97,8 @@
 
 .container {
   height: 100%;
+}
+
+.stars {
+  margin-left: .5rem;
 }
