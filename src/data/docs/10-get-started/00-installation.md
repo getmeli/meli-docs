@@ -5,15 +5,15 @@ excerpt: ''
 
 # Installation
 
-# TLDR;
+## Getting started
 
 Configure DNS records to point to your Meli server:
 
 <div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
 
 ```txt
-mymeli.com IN A 1.2.3.4
-*.mymeli.com IN A 1.2.3.4
+meli.company.com IN A 1.2.3.4
+*.meli.company.com IN A 1.2.3.4
 ```
 
 </div>
@@ -22,23 +22,30 @@ Deploy with `docker-compose`:
 
 <div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
 
-```
+```yaml
 version: "3"
 
 services:
 
   meli:
-    image: getmeli/api:next
-    restart: unless-stopped
+    image: tmp
     ports:
-      - 127.0.0.1:80:80
-      - 127.0.0.1:443:443
+      - 80:80
+      - 443:443
     environment:
-      MELI_HOST=https://cloud.meli.sh
-      MELI_MONGO_URI=mongodb://mongo:27017/meli
-      MELI_JWT_SECRET=${MELI_JWT_SECRET?MELI_JWT_SECRET} # openssl rand -hex 32
+      MELI_URL: https://meli.company.com
+      MELI_MONGO_URI: mongodb://mongo:27017/meli
+      # openssl rand -hex 32
+      MELI_JWT_SECRET: changeMe
+      # for other authentication methods, see https://docs.meli.sh/authentication
+      MELI_USER: user
+      MELI_PASSWORD: changeMe
     volumes:
-      - /data/meli:/sites
+      - ./tmp/sites:/sites
+      - ./tmp/caddy/data:/data
+      - ./tmp/caddy/config:/config
+    depends_on:
+      - mongo
 
   mongo:
     image: mongo:4.2-bionic
@@ -56,12 +63,8 @@ To prevent your users to create organizations, we set `MELI_MAX_ORGS` to `1` by 
 
 </div>
 
-# TSWM;
+## Next steps
 
-- Authentication:
-    - [GitHub](/authentication/github)
-    - [GitLab](/authentication/gitlab)
-    - [Gitea](/authentication/gitea)
-    - [Google](/authentication/google)
-- [Emails](/installation/emails)
-- [Advanced deployment](/installation/advanced)
+- [Uploading sites](/get-started/upload-site)
+- [Other authentication methods](/authentication)
+- [Configure Emails](/configuration/emails)
