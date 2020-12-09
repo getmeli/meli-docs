@@ -62,7 +62,7 @@ const settings = {
   distinct: true,
 };
 
-const indexName = process.env.GATSBY_ALGOLIA_INDEX_NAME || 'dev_METROLINE';
+const indexName = process.env.GATSBY_ALGOLIA_INDEX_NAME || 'dev_meli';
 
 const queries = [
   {
