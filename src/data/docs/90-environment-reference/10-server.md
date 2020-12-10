@@ -88,7 +88,7 @@ Setting this variable only makes sense when Caddy is deployed as a standalone co
 
 **Description**:
 
-This is where your sites are served. 
+This is where your sites are served. Setting this variables allows you to serve your sites with a different domain than that used to access Meli.
 
 ## MELI\_STANDALONE
 
