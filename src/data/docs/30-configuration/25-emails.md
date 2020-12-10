@@ -1,9 +1,10 @@
 ---
 title: 'Email configuration'
+sidebarTitle: 'Emails'
 excerpt: 'Learn how to configure emails for Meli'
 ---
 
-# Email
+# Emails
 
 By default Meli prints emails to the console. However, you can configure email credentials to a proper email service as follows:
 
@@ -21,7 +22,7 @@ MELI_MAIL_PASSWORD: password
 
 For development purposes, we use [Mailhog](https://github.com/mailhog/MailHog):
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"], "labels": [".env"] }'>
+<div class="code-group" data-props='{ "labels": [".env"] }'>
 
 ```dotenv
 MELI_MAIL_FROM: noreply@meli.sh
@@ -31,7 +32,7 @@ MELI_MAIL_PORT: 1025
 
 </div>
 
-<div class="code-group" data-props='{ "lineNumbers": ["true"], "labels": ["docker-compose.yml"] }'>
+<div class="code-group" data-props='{ "labels": ["docker-compose.yml"] }'>
 
 ```yaml
 version: "3"

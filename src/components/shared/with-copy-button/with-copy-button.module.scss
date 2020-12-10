@@ -13,7 +13,6 @@
   outline: none;
   color: $color-tertiary;
   font-weight: 600;
-  line-height: initial;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -24,6 +23,7 @@
     top: unset;
     bottom: 10px;
   }
+
   &:hover {
     background-color: $color-accent-secondary;
   }
