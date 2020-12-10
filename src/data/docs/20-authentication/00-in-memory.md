@@ -1,6 +1,7 @@
 ---
 title: 'In-memory Authentication'
 sidebarTitle: 'In-memory'
+path: 'in-memory'
 excerpt: 'Authenticating to Meli using in-memory user and password'
 ---
 

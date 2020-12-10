@@ -17,8 +17,14 @@ async function createDocPages({ actions: { createPage }, graphql, reporter }) {
   const { data } = await graphql(`
     query docPagesQuery {
       allFile(
-        filter: { ext: { eq: ".md" }, relativeDirectory: { regex: "/docs/" } }
-        sort: { fields: absolutePath, order: ASC }
+        filter: { 
+          ext: { eq: ".md" }, 
+          relativeDirectory: { regex: "/docs/" } 
+        }
+        sort: { 
+          fields: absolutePath, 
+          order: ASC
+        }
       ) {
         nodes {
           name
@@ -31,6 +37,7 @@ async function createDocPages({ actions: { createPage }, graphql, reporter }) {
                 sidebarTitle
                 excerpt
                 isHomePage
+                path
               }
             }
           }
@@ -39,34 +46,26 @@ async function createDocPages({ actions: { createPage }, graphql, reporter }) {
     }
   `);
 
-  // Tree-structure handlers
   const { getTreePart, addNode } = buildFileTree(buildFileTreeNode);
 
-  // first iteration, build our tree
-  data.allFile.nodes.forEach(({ name, relativeDirectory, children }) => {
-    const {
-      frontmatter: { title, isHomePage, excerpt, sidebarTitle },
-    } = children[0];
-    // build a proper path
+  data.allFile.nodes.forEach(({ name, relativeDirectory, children, children: [remarkNode] }) => {
+      const { frontmatter: { title, isHomePage, excerpt, sidebarTitle, path } } = children[0];
+      // build a proper path
 
-    const entryPath = compose(
-      slugify,
-      unorderify,
-      stripDocRoot,
-    )(`/${relativeDirectory}/${title || name}`);
+      const entryPath = isHomePage
+        ? '/'
+        : compose(slugify, unorderify, stripDocRoot)(
+          `/${relativeDirectory}/${path || sidebarTitle || title || name}`,
+        );
 
-    // populate our tree representation with actual nodes
-    addNode(unorderify(relativeDirectory), unorderify(name), {
-      path: isHomePage ? '/' : entryPath,
-      title,
-      excerpt,
-      sidebarTitle,
-    });
-  });
+      // populate our tree representation with actual nodes
+      addNode(unorderify(relativeDirectory), unorderify(name), {
+        path: entryPath,
+        title,
+        excerpt,
+        sidebarTitle,
+      });
 
-  // second iteration, create actual doc pages
-  data.allFile.nodes.forEach(
-    ({ name, relativeDirectory, children, children: [remarkNode] }) => {
       // for debuggin purpose in case there are errors in md/html syntax
       if (typeof remarkNode === 'undefined') {
         console.log('remarkNode is', remarkNode);
@@ -77,16 +76,7 @@ async function createDocPages({ actions: { createPage }, graphql, reporter }) {
         );
         return;
       }
-      const { title, isHomePage } = remarkNode.frontmatter;
 
-      // build a proper path
-      const entryPath = isHomePage
-        ? '/'
-        : compose(
-          slugify,
-          unorderify,
-          stripDocRoot,
-        )(`/${relativeDirectory}/${title || name}`);
       const extendedRemarkNode = {
         ...remarkNode,
         frontmatter: {

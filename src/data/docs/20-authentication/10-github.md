@@ -36,6 +36,6 @@ services:
 
 <div class="blockquote" data-props='{ "mod": "warning" }'>
 
-When authorizing your Github account, you **will** need to grant access to each organization separately for the server to see it. Otherwise, if `MELI_GITHUB_ORGS` is set, you will be denied access to Meli. if you have specifically denied access to Meli for a given organization, you can revoke this ban by going to your organization settings under **Third party access**.
+When authorizing your Github account, you **will** need to grant access to each organization separately for the server to see it. Otherwise, if `MELI_GITHUB_ORGS` is set, you will be denied access to Meli. If you have specifically denied access to Meli for a given organization, you can revoke this ban by going to your organization settings under **Third party access**.
 
 </div> 

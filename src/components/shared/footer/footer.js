@@ -19,15 +19,17 @@ const Footer = props => (
         <div className={styles.footerCopyrightText}>
           <a
             href={TWITTER_URL}
-            className={`link ${styles.companyLink}`}
+            className={`link ${styles.link}`}
             target="_blank"
+            rel="noopener noreferrer"
           >
             Twitter
           </a>
           <a
             href={GITHUB_URL}
-            className={`link ${styles.companyLink}`}
+            className={`link ${styles.link}`}
             target="_blank"
+            rel="noopener noreferrer"
           >
             Github
           </a>

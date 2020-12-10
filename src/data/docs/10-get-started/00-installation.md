@@ -28,7 +28,7 @@ version: "3"
 services:
 
   meli:
-    image: tmp
+    image: getmeli/meli:beta
     ports:
       - 80:80
       - 443:443
