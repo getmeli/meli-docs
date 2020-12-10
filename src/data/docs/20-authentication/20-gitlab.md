@@ -38,8 +38,8 @@ services:
       MELI_GITLAB_CLIENT_ID: <your-gitlab-application-id>
       MELI_GITLAB_CLIENT_SECRET: <your-gitlab-application-secret>
       MELI_GITLAB_URL: http://10.0.1.23:3003
-      # optionally if your Metroline server uses a self-signed certificate
-      MELI_GITLAB_WEBHOOK_SSL_VERIFY: "false"
+      # restrict access to your Gitlab group
+      MELI_GITLAB_GROUPS: my-org-1,my-org-2
 ```
 
 </div>

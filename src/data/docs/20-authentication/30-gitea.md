@@ -36,6 +36,8 @@ services:
       MELI_GITEA_CLIENT_ID: <your-gitea-client-id>
       MELI_GITEA_CLIENT_SECRET: <your-gitea-client-secret>
       MELI_GITEA_URL: http://10.0.1.23:3003
+      # restrict access to your Gitea organizations
+      MELI_GITEA_ORGS: my-org-1,my-org-2
 ```
 
 </div>
