@@ -24,8 +24,9 @@ jobs:
         run: |
           npx @getmeli/cli@next upload \
             --url "https://cloud.meli.sh" \
-            --site "ccb81d07-e898-4214-9adb-00399dff015d" \
+            --site "$MELI_SITE" \
             --token "$MELI_TOKEN" \
             ./public
         env:
+          MELI_SITE: da43a195-de82-43a4-8bf3-87d68d8caab6
           MELI_TOKEN: ${{ secrets.MELI_TOKEN }}
