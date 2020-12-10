@@ -28,5 +28,5 @@ jobs:
             --token "$MELI_TOKEN" \
             ./public
         env:
-          MELI_SITE: da43a195-de82-43a4-8bf3-87d68d8caab6
+          MELI_SITE: ${{ secrets.MELI_SITE }}
           MELI_TOKEN: ${{ secrets.MELI_TOKEN }}
