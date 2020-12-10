@@ -27,6 +27,7 @@ jobs:
             --url "https://cloud.meli.sh" \
             --site "$MELI_SITE" \
             --token "$MELI_TOKEN" \
+            --release "$GITHUB_SHA" \
             ./public
         env:
           MELI_TOKEN: ${{ secrets.MELI_TOKEN }}
