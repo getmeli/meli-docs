@@ -12,7 +12,7 @@ In Github, go to **Settings / Developer Settings / OAuth Apps** and add a new OA
 | ---- | ---- |
 | Application name   | Metroline | 
 | Homepage URL   | https://meli.sh | 
-| Authorization callback URL | `<meli-server-url>/auth/github/oauth/callback` |
+| Authorization callback URL | `<meli-server-url>/auth/github/callback` |
 
 Now, you can update your `docker-compose.yml`:
 

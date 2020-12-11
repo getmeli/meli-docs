@@ -11,7 +11,7 @@ From your Gitlab **admin area**, [add a new application](https://docs.gitlab.com
 | Field | Value |
 | ---- | ---- |
 | Name   | Metroline | 
-| Redirect URL | `<meli-server-url>/auth/gitlab/oauth/callback` |
+| Redirect URL | `<meli-server-url>/auth/gitlab/callback` |
 | Trusted | true |
 | Scopes | api |
 

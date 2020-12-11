@@ -7,7 +7,7 @@ excerpt: 'Authenticating to Meli using Google'
 # Google Authentication
 
 1. Create a new Google application.
-1. Configure the OAuth consent screen
+1. Configure the OAuth consent screen, the callback URL should be `<your-meli-server-url>/auth/google/callback`
 1. Create OAuth credentials
 1. Get your client ID and client secret
 

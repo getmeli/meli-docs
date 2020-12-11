@@ -11,7 +11,7 @@ In **Settings / Applications**, add an OAuth application with the following sett
 | Field | Value |
 | ---- | ---- |
 | Application name   | Metroline | 
-| Authorization callback URL | `<meli-server-url>/auth/gitea/oauth/callback` |
+| Authorization callback URL | `<meli-server-url>/auth/gitea/callback` |
 
 Copy your **Client ID** and **Client secret**.
 
