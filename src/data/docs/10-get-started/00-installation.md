@@ -65,6 +65,6 @@ To prevent your users to create organizations, we set `MELI_MAX_ORGS` to `1` by 
 
 ## Next steps
 
-- [Uploading sites](/get-started/upload-site)
+- [Uploading sites](/get-started/upload-a-site-to-meli)
 - [Other authentication methods](/authentication)
 - [Configure Emails](/configuration/emails)
