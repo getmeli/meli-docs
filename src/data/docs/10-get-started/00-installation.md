@@ -49,6 +49,7 @@ services:
 
   mongo:
     image: mongo:4.2-bionic
+    restart: unless-stopped
     volumes:
       - ./data/mongo:/data/db
     ports:
