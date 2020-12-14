@@ -33,6 +33,7 @@ services:
       - 80:80
       - 443:443
     environment:
+      # no trailing slash !
       MELI_URL: https://meli.company.com
       MELI_MONGO_URI: mongodb://mongo:27017/meli
       # openssl rand -hex 32
