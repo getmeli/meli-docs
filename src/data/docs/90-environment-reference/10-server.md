@@ -652,18 +652,6 @@ Where the Meli API serves static content. This is used to server generic pages s
 
 Amount of time (in ms) before an invitation expires.
 
-## MELI\_BCRYPT\_SALTROUNDS
-
-**Default**: 10
-
-**Required**: no
-
-**Type**: number
-
-**Description**:
-
-Number of salt rounds for hashing passwords with Bcrypt.
-
 ## MELI\_ACME\_SERVER
 
 **Default**: undefined
