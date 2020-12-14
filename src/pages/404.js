@@ -1,11 +1,11 @@
 import React from 'react';
-import {default as LayoutMain} from 'layouts/main';
+import { default as LayoutMain } from 'layouts/main';
 
 const NotFoundPage = () => (
   <LayoutMain
     seoMetadata={{
-      title: 'Not Found | Metroline',
-      content: 'The page does not exist',
+      title: 'Not Found | Meli',
+      content: 'This page does not exist',
       slug: '/404',
     }}
   >

@@ -2,11 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import Media from 'react-media';
 import classNames from 'classnames/bind';
 import styles from './sidebar.module.scss';
-import Search from 'components/shared/search';
 import { Link, navigate, withPrefix } from 'gatsby';
 import AlgoliaQueries from 'utils/algolia';
 import _startCase from 'lodash/startCase';
-import { useAckee } from '../../../hooks/use-analytics';
 
 const indexName = AlgoliaQueries[0].indexName;
 
@@ -87,7 +85,6 @@ const Sidebar = ({ sidebar, slug }) => {
 
   return (
     <div className={styles.wrapper}>
-      <Search collapse indices={searchIndices}/>
       <Media
         query="(min-width: 767.98px)"
         render={() => (

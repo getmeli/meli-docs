@@ -4,12 +4,17 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-
 require('./src/styles/app.scss');
 
 import React from "react"
-import { Ackee } from './src/hooks/use-analytics';
+import { blurElId } from './src/components/shared/local-search/search-bar';
 
 export const wrapRootElement = ({ element }) => (
-  <Ackee>{element}</Ackee>
+  <div id={blurElId}>
+    {element}
+  </div>
 )
+
+// const Modal = require('react-modal');
+
+// Modal.setAppElement('#yourAppElement');

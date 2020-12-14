@@ -1,62 +1,22 @@
+const { getNodePath } = require('./src/utils/get-node-path');
+const { nodeGqlQuery } = require('./src/utils/node-gql-query');
+
 const path = require('path');
-const {
-  slugify,
-  buildFileTree,
-  buildFileTreeNode,
-  unorderify,
-  compose,
-  buildBreadcrumbs,
-  stripDocRoot,
-} = require('./src/utils/utils');
+const { buildFileTree, buildFileTreeNode, unorderify, buildBreadcrumbs } = require('./src/utils/utils');
 
 // main doc page template
 const docPageTemplate = path.resolve(`src/templates/doc-page.js`);
 
 async function createDocPages({ actions: { createPage }, graphql, reporter }) {
   // doc pages query
-  const { data } = await graphql(`
-    query docPagesQuery {
-      allFile(
-        filter: { 
-          ext: { eq: ".md" }, 
-          relativeDirectory: { regex: "/docs/" } 
-        }
-        sort: { 
-          fields: absolutePath, 
-          order: ASC
-        }
-      ) {
-        nodes {
-          name
-          relativeDirectory
-          children {
-            ... on MarkdownRemark {
-              html
-              frontmatter {
-                title
-                sidebarTitle
-                excerpt
-                isHomePage
-                path
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+  const { data } = await graphql(nodeGqlQuery);
 
   const { getTreePart, addNode } = buildFileTree(buildFileTreeNode);
 
   data.allFile.nodes.forEach(({ name, relativeDirectory, children, children: [remarkNode] }) => {
-      const { frontmatter: { title, isHomePage, excerpt, sidebarTitle, path } } = children[0];
-      // build a proper path
-
-      const entryPath = isHomePage
-        ? '/'
-        : compose(slugify, unorderify, stripDocRoot)(
-          `/${relativeDirectory}/${path || sidebarTitle || title || name}`,
-        );
+      const child = children[0];
+      const { frontmatter: { title, excerpt, sidebarTitle } } = child;
+      const entryPath = getNodePath(relativeDirectory, child);
 
       // populate our tree representation with actual nodes
       addNode(unorderify(relativeDirectory), unorderify(name), {

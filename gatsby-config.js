@@ -1,4 +1,6 @@
 const queries = require('./src/utils/algolia');
+const { getNodePath } = require('./src/utils/get-node-path');
+const { nodeGqlQuery } = require('./src/utils/node-gql-query');
 require('dotenv').config();
 
 const plugins = [
@@ -115,6 +117,42 @@ if (
     },
   });
 }
+
+// https://www.gatsbyjs.com/plugins/gatsby-plugin-local-search/
+plugins.push(
+  {
+    resolve: 'gatsby-plugin-local-search',
+    options: {
+      name: 'prod-en',
+      engine: 'flexsearch',
+      engineOptions: 'speed',
+      query: nodeGqlQuery,
+      ref: 'id',
+      // Default: all fields
+      // index: ['title', 'body'],
+      // Default: all fields
+      // store: ['id', 'path', 'title'],
+
+      // Function used to map the result from the GraphQL query. This should
+      // return an array of items to index in the form of flat objects
+      // containing properties to index. The objects must contain the `ref`
+      // field above (default: 'id'). This is required.
+      normalizer: ({ data }) => data.allFile.nodes.map(({ id, relativeDirectory, children }) => {
+        const child = children[0];
+        const nodePath = getNodePath(relativeDirectory, child);
+        return ({
+          id: child.id,
+          path: nodePath,
+          title: child.frontmatter.title,
+          sidebarTitle: child.sidebarTitle,
+          excerpt: child.excerpt,
+          // body: child.html,
+          body: child.rawMarkdownBody,
+        });
+      }),
+    },
+  },
+);
 
 module.exports = {
   pathPrefix: '/',

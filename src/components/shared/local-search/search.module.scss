@@ -1,0 +1,81 @@
+:global {
+  *[data-blur='true'] {
+    filter: blur(8px);
+  }
+
+  .ReactModal__Overlay {
+    opacity: 0;
+    transition: all .1s ease-in-out;
+  }
+
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+  }
+
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.modal {
+  margin: 50px;
+  padding: 25px;
+  height: 100vh;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.search-input {
+  outline: none;
+  padding: 15px;
+  line-height: 1;
+  background: $color-tertiary;
+  border: 2px solid $color-additional-1;
+  width: 100%;
+  transition: border-color $transition-base;
+
+  &::placeholder {
+    color: $color-secondary;
+  }
+
+  &:hover {
+    border-color: $color-additional-4;
+  }
+
+  &:focus {
+    border-color: $color-accent-primary;
+  }
+}
+
+.icon {
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.hit-entry {
+  display: block;
+  background: $color-tertiary;
+  padding: 15px;
+  margin-top: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 50px rgba(27, 4, 73, 0.1), 0px 5px 10px rgba(27, 4, 73, 0.1);
+  text-decoration: none;
+
+  &:hover {
+    background: $color-additional-1;
+  }
+}
