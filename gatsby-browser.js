@@ -7,14 +7,10 @@
 require('./src/styles/app.scss');
 
 import React from "react"
-import { blurElId } from './src/components/shared/local-search/search-bar';
+import { blurElId } from './src/components/shared/local-search/search-modal';
 
-export const wrapRootElement = ({ element }) => (
-  <div id={blurElId}>
+export const wrapRootElement = ({ element }) => {
+  return <div id={blurElId}>
     {element}
-  </div>
-)
-
-// const Modal = require('react-modal');
-
-// Modal.setAppElement('#yourAppElement');
+  </div>;
+}

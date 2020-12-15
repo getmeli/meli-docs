@@ -66,6 +66,23 @@
   }
 }
 
+.close {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.shortcut {
+  font-weight: bold;
+  display: inline-block;
+  font-size: 1em;
+  margin: 0 .4rem;
+}
+
+.close-icon {
+  margin-left: 15px;
+}
+
 .hit-entry {
   display: block;
   background: $color-tertiary;

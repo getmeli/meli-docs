@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useFlexSearch } from 'react-use-flexsearch';
 import React, { useEffect, useState } from 'react';
 import styles from './search.module.scss';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Modal from 'react-modal';
 import classNames from 'classnames';
@@ -36,7 +36,7 @@ function highlight(content, query) {
     .join(' ... ');
 }
 
-export function SearchBar({ className, index, store }) {
+export function SearchModal({ className, index, store }) {
   const { register, watch, handleSubmit } = useForm({ mode: 'onChange' });
   const [isOpen, setIsOpen] = useState(false);
   const query = watch('query');
@@ -57,7 +57,7 @@ export function SearchBar({ className, index, store }) {
     register()(el);
   };
 
-  console.log(results);
+  const closeModal = () => setIsOpen(false);
 
   return (
     <>
@@ -68,11 +68,22 @@ export function SearchBar({ className, index, store }) {
       />
       <Modal
         isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
+        onRequestClose={closeModal}
         className={classNames(styles.modal)}
         overlayClassName={styles.overlay}
+        ariaHideApp={false}
       >
         <div className="container">
+          <div className={styles.close}>
+            <div>
+              Press <strong className={styles.shortcut}>ESC</strong> to close
+              <FontAwesomeIcon
+                icon={faTimes}
+                className={classNames(styles.icon, styles.closeIcon)}
+                onClick={closeModal}
+              />
+            </div>
+          </div>
           <form onSubmit={handleSubmit(() => undefined)}>
             <div className="form-group">
               <input
@@ -98,7 +109,7 @@ export function SearchBar({ className, index, store }) {
               )
             ) : (
               results.map(result => (
-                <Link to={result.path} key={result.id} className={styles.hitEntry} onClick={() => setIsOpen(false)}>
+                <Link to={result.path} key={result.id} className={styles.hitEntry} onClick={closeModal}>
                   <div className={styles.entryTitle}>
                     <strong>{result.title}</strong>
                   </div>

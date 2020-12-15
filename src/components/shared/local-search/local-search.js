@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { SearchBar } from './search-bar';
+import { SearchModal } from './search-modal';
 
 const searchIndexQuery = `
 query localSearch {
@@ -35,7 +35,7 @@ export function LocalSearch({ className }) {
   ) : error ? (
     <></>
   ) : (
-    <SearchBar
+    <SearchModal
       index={indexAndStore.index}
       store={indexAndStore.store}
       className={className}
