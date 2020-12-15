@@ -18,6 +18,24 @@ function unblurBackground() {
   document.getElementById(blurElId).removeAttribute('data-blur');
 }
 
+function highlight(content, query) {
+  if (!query) {
+    return content;
+  }
+  const sanitizedKeyword = (query || '').replace(/\W/g, '');
+  const patternWithOffset = new RegExp(`.{0,40}(${sanitizedKeyword}).{0,40}`, 'gi');
+  const matches = content.match(patternWithOffset);
+  if (!matches) {
+    return content;
+  }
+  const queryRegex = new RegExp(sanitizedKeyword, 'gi');
+  return matches
+    .map(str => str.replace(queryRegex, match => (
+      `<strong class="highlight">${match}</strong>`
+    )))
+    .join(' ... ');
+}
+
 export function SearchBar({ className, index, store }) {
   const { register, watch, handleSubmit } = useForm({ mode: 'onChange' });
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +57,8 @@ export function SearchBar({ className, index, store }) {
     register()(el);
   };
 
+  console.log(results);
+
   return (
     <>
       <FontAwesomeIcon
@@ -52,36 +72,44 @@ export function SearchBar({ className, index, store }) {
         className={classNames(styles.modal)}
         overlayClassName={styles.overlay}
       >
-        <form onSubmit={handleSubmit(() => undefined)}>
-          <div className="form-group">
-            <input
-              type="text"
-              name="query"
-              className={styles.searchInput}
-              placeholder="Search"
-              ref={setRef}
-              autoComplete="off"
-            />
-          </div>
-        </form>
-        <div>
-          {results.length === 0 ? (
-            query ? (
-              <div className={styles.hitEntry}>
-                No results for <strong>{query}</strong>
-              </div>
+        <div className="container">
+          <form onSubmit={handleSubmit(() => undefined)}>
+            <div className="form-group">
+              <input
+                type="text"
+                name="query"
+                className={styles.searchInput}
+                placeholder="Search"
+                ref={setRef}
+                autoComplete="off"
+              />
+            </div>
+          </form>
+          <div>
+            {results.length === 0 ? (
+              query ? (
+                <div className={classNames(styles.hitEntry, styles.noHover)}>
+                  No results for <strong>{query}</strong>
+                </div>
+              ) : (
+                <div className={classNames(styles.hitEntry, styles.noHover)}>
+                  Type to search
+                </div>
+              )
             ) : (
-              <div className={styles.hitEntry}>
-                Type to search
-              </div>
-            )
-          ) : (
-            results.map(result => (
-              <Link to={result.path} key={result.id} className={styles.hitEntry} onClick={() => setIsOpen(false)}>
-                {result.title}
-              </Link>
-            ))
-          )}
+              results.map(result => (
+                <Link to={result.path} key={result.id} className={styles.hitEntry} onClick={() => setIsOpen(false)}>
+                  <div className={styles.entryTitle}>
+                    <strong>{result.title}</strong>
+                  </div>
+                  <div
+                    className={styles.entryBody}
+                    dangerouslySetInnerHTML={{ __html: highlight(result.body, query) }}
+                  />
+                </Link>
+              ))
+            )}
+          </div>
         </div>
       </Modal>
     </>

@@ -7,6 +7,7 @@ env:
   #  GATSBY_ALGOLIA_INDEX_NAME: "docs-prod"
   #  GATSBY_ALGOLIA_SEARCH_ONLY_KEY: "16c14bda60a1b9edfce612eb56139706"
   MELI_SITE: "d46eb851-5601-47c9-a1eb-8e47b14245f6"
+  GATSBY_GITHUB_STARS: "true"
 jobs:
   build:
     runs-on: ubuntu-latest
