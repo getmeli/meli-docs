@@ -5,6 +5,11 @@
   height: $header-height;
 }
 
+.right {
+  display: flex;
+  align-items: center;
+}
+
 .inner {
   display: flex;
   align-items: center;
@@ -16,11 +21,12 @@
 .header-menu {
   display: flex;
   align-items: center;
-  position: absolute;
-  left: 0;
-  right: 0;
   justify-content: flex-end;
   will-change: transform;
+}
+
+.search {
+  margin-right: 15px;
 }
 
 .link {

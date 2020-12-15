@@ -3,10 +3,11 @@ on: [ push ]
 env:
   GATSBY_SITE_URL: "https://docs.meli.sh"
   GATSBY_GITHUB_DOCS_URL: "https://github:com/getmeli/meli-docs/tree/master/src/data"
-  GATSBY_ALGOLIA_APP_ID: "CX0A5WLCWE"
-  GATSBY_ALGOLIA_INDEX_NAME: "docs-prod"
-  GATSBY_ALGOLIA_SEARCH_ONLY_KEY: "16c14bda60a1b9edfce612eb56139706"
+  #  GATSBY_ALGOLIA_APP_ID: "CX0A5WLCWE"
+  #  GATSBY_ALGOLIA_INDEX_NAME: "docs-prod"
+  #  GATSBY_ALGOLIA_SEARCH_ONLY_KEY: "16c14bda60a1b9edfce612eb56139706"
   MELI_SITE: "d46eb851-5601-47c9-a1eb-8e47b14245f6"
+  GATSBY_GITHUB_STARS: "true"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,8 +20,8 @@ jobs:
         run: npm ci
       - name: "build"
         run: npm run build
-        env:
-          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+      #        env:
+      #          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
       - name: "publish"
         run: |
           npx @getmeli/cli@next upload \

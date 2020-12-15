@@ -6,17 +6,19 @@ export function GithubStars({ className }) {
   const [starCount, setStarCount] = useState(0);
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/getmeli/meli')
-      .then(res => {
-        if (res.status !== 200) {
-          throw res;
-        }
-        return res.json();
-      })
-      .then(repo => {
-        setStarCount(repo.stargazers_count);
-      })
-      .catch(console.error)
+    if (process.env.GATSBY_GITHUB_STARS) {
+      fetch('https://api.github.com/repos/getmeli/meli')
+        .then(res => {
+          if (res.status !== 200) {
+            throw res;
+          }
+          return res.json();
+        })
+        .then(repo => {
+          setStarCount(repo.stargazers_count);
+        })
+        .catch(console.error);
+    }
   }, []);
 
   return (
