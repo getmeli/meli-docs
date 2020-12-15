@@ -61,7 +61,7 @@ services:
 
 <div class="blockquote" data-props='{ "mod": "info" }'>
 
-To prevent your users to create organizations, we set `MELI_MAX_ORGS` to `1` by default. You can disable this by setting `MELI_MAX_ORGS=0`.
+To prevent your users from creating organizations, we set `MELI_MAX_ORGS` to `1` by default. You can disable this by setting `MELI_MAX_ORGS=0`.
 
 </div>
 
