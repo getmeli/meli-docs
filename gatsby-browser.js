@@ -5,12 +5,3 @@
  */
 
 require('./src/styles/app.scss');
-
-import React from "react"
-import { blurElId } from './src/components/shared/local-search/search-modal';
-
-export const wrapRootElement = ({ element }) => {
-  return <div id={blurElId}>
-    {element}
-  </div>;
-}

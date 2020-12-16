@@ -26,7 +26,7 @@ async function createDocPages({ actions: { createPage }, graphql, reporter }) {
         sidebarTitle,
       });
 
-      // for debuggin purpose in case there are errors in md/html syntax
+      // for debugging purpose in case there are errors in md/html syntax
       if (typeof remarkNode === 'undefined') {
         console.log('remarkNode is', remarkNode);
         console.log('children is', children);

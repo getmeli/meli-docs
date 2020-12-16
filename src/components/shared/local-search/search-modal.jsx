@@ -8,14 +8,21 @@ import Modal from 'react-modal';
 import classNames from 'classnames';
 import { Link } from 'gatsby';
 
-export const blurElId = 'blur-overlay';
+export const blurElId = '___gatsby';
 
 function blurBackground() {
-  document.getElementById(blurElId).setAttribute('data-blur', 'true');
+  const el = document.getElementById(blurElId);
+  if (el) {
+    el.setAttribute('data-blur', 'true');
+  }
 }
 
 function unblurBackground() {
-  document.getElementById(blurElId).removeAttribute('data-blur');
+  console.log(document.getElementById('___gatsby'));
+  const el = document.getElementById(blurElId);
+  if (el) {
+    el.removeAttribute('data-blur');
+  }
 }
 
 function highlight(content, query) {
@@ -40,6 +47,7 @@ export function SearchModal({ className, index, store }) {
   const { register, watch, handleSubmit } = useForm({ mode: 'onChange' });
   const [isOpen, setIsOpen] = useState(false);
   const query = watch('query');
+
   const results = useFlexSearch(query, index, store);
 
   useEffect(() => {
