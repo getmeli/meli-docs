@@ -9,7 +9,7 @@ excerpt: 'Deploy multiple versions of the same static site with Meli'
 
 Branches allow you to deploy multiple versions of the same site. Each branch is served as a static site from `<branch-slug>.<site-name>.<meli-sites-url>`.
 
-For example, if your Meli is deployed at `https://meli.company.com`, a branch named `next` in a site named `site` branch will be available at `https://latest.site.meli.company.com`.  
+For example, if your Meli is deployed at `https://meli.company.com`, a branch named `next` in a site named `site` branch will be available at `https://next.site.meli.company.com`.  
 
 ## Main branch
 
