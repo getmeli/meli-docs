@@ -18,7 +18,6 @@ function blurBackground() {
 }
 
 function unblurBackground() {
-  console.log(document.getElementById('___gatsby'));
   const el = document.getElementById(blurElId);
   if (el) {
     el.removeAttribute('data-blur');
