@@ -13,7 +13,7 @@ Requirements:
 
 ### 1. Configure DNS
 
-Configure DNS records to point to your VPS. You should configure **both** the **main** and **wildcard** domains Assuming your VPS's IP is `1.2.3.4`:
+Configure DNS records to point to your VPS. You should configure **both** the **main** and **wildcard** domains. Assuming your VPS's IP is `1.2.3.4`:
 
 <div class="code-group">
 
