@@ -1,5 +1,6 @@
 ---
-title: 'Email hooks'
+title: 'Email integration'
+sidebarTitle: 'Email'
 excerpt: 'Configure email notifications with Meli'
 ---
 

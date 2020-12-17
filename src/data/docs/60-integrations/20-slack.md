@@ -1,5 +1,6 @@
 ---
-title: 'Slack hooks'
+title: 'Slack integration'
+sidebarTitle: 'Slack'
 excerpt: 'Configure Slack with Meli'
 ---
 
@@ -19,7 +20,9 @@ Slack webhook URL. To get this URL:
 
 Or if you prefer watching:
 
-![Get Slack hook url](../../images/get-slack-webhook-url.mp4)
+<video controls>
+    <source src="/media/get-slack-webhook-url.mp4" type="video/mp4" />
+</video>
 
 ## Creating a webhook
 

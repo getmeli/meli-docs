@@ -1,5 +1,6 @@
 ---
-title: 'Mattermost hooks'
+title: 'Mattermost integration'
+sidebarTitle: 'Mattermost'
 excerpt: 'Configure Mattermost with Meli'
 ---
 

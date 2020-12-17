@@ -161,7 +161,7 @@ module.exports = {
     siteDescription:
       'Documentation of Meli, an open source platform for deploying static sites and frontend applications.',
     // pathPrefix: "",
-    siteImage: '/images/social-preview.png',
+    siteImage: '/media/social-preview.png',
     siteLanguage: 'en',
     siteUrl: process.env.GATSBY_SITE_URL,
     /* author */
