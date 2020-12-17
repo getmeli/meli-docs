@@ -14,12 +14,6 @@ excerpt: 'Get started with the Meli API'
     - specify activation/expiration dates 
     - limit access to specific endpoints
 
-    <div class="blockquote" data-props='{ "mod": "info" }'>
-    
-    You can limit which endpoints a token can access by selecting specific scopes in the UI.
-    
-    </div>
-
 1. When making a request, send your token in the `token` query param or `X-Token` header
 
 ## Example
