@@ -42,9 +42,9 @@ services:
       MELI_USER: user
       MELI_PASSWORD: changeMe
     volumes:
-      - ./tmp/sites:/sites
-      - ./tmp/caddy/data:/data
-      - ./tmp/caddy/config:/config
+      - ./data/sites:/sites
+      - ./data/caddy/data:/data
+      - ./data/caddy/config:/config
     depends_on:
       - mongo
 
