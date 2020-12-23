@@ -723,3 +723,23 @@ Password for in-memory authentication.
 **Description**:
 
 Maximum number of organizations that can be created on this Meli instance. Setting this value to `0` will disable the limit.
+
+## MELI\_MULTER\_LIMITS
+
+**Default**: {}
+
+**Required**: no
+
+**Type**: JSON object
+
+**Description**:
+
+A stringified JSON object with [Multer limits](https://github.com/expressjs/multer#limits). For example:
+
+<div class="code-group">
+
+```dotenv
+MELI_MULTER_LIMITS={"fileSize":150000000}
+```
+
+</div> 

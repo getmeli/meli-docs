@@ -15,4 +15,3 @@ Meli uses [Caddy](https://caddyserver.com/) to serve deployed sites, and offers 
 - [Installation](/get-started/installation)
 - [API](/api/api)
 - [Integrations](/integrations)
-
