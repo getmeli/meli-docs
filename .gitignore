@@ -73,3 +73,7 @@ yarn-error.log
 
 .idea/*
 !.idea/runConfigurations
+
+tmp
+tmp.*
+*.tmp
