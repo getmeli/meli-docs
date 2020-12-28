@@ -1,5 +1,5 @@
 name: main
-on: [ push ]
+on: [ push, pull_request ]
 env:
   GATSBY_SITE_URL: "https://docs.meli.sh"
   GATSBY_GITHUB_DOCS_URL: "https://github.com/getmeli/meli-docs/tree/master/src/data"
