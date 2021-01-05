@@ -7,11 +7,11 @@ excerpt: ""
 
 ## Introduction
 
-Meli by default uses caddy's automatic HTTPS support to deploy with Let's Encrypt certificates for your configured domain, however deployment behind a reverse proxy is supported. Do note that Meli will not provision certificates for custom domains and you will need to configure your reverse proxy for it. We have assumed you have followed the [installation guide](/get-started/installation).
+Meli by default uses Caddy's automatic HTTPS support to deploy with Let's Encrypt certificates for your configured domain. However, deployment behind a reverse proxy is supported, but you will need to handle SSL certificate issuance and renewal on your own - you will want to get a wildcard SSL certificate instead. We assume you have followed the [installation guide](/get-started/installation).
 
 ## Configure Meli
 
-Following needs to be done in your `docker-compose.yml` file:
+The following needs to be done in your `docker-compose.yml` file:
 
 1. Make sure `MELI_URL` is set to have `https` as it's scheme
 2. Change the ports
@@ -23,36 +23,16 @@ Following needs to be done in your `docker-compose.yml` file:
 version: "3"
 
 services:
-
-    meli:
-    image: getmeli/meli:beta
-    ports:
-        # change the host port to your liking
-        - 8005:80
-    environment:
-        # no trailing slash !
-        # make sure this is https://
-        MELI_URL: https://meli.company.com
-        MELI_MONGO_URI: mongodb://mongo:27017/meli
-        # openssl rand -hex 32
-        MELI_JWT_SECRET: changeMe
-        # https://docs.meli.sh/authentication
-        MELI_USER: user
-        MELI_PASSWORD: changeMe
-        # add this
-        MELI_HTTPS_AUTO: 0
-    volumes:
-        - ./data/sites:/sites
-        - ./data/caddy/data:/data
-        - ./data/caddy/config:/config
-    depends_on:
-        - mongo
-
-    mongo:
-    image: mongo:4.2-bionic
-    restart: unless-stopped
-    volumes:
-        - ./data/mongo:/data/db
+    
+  meli:
+  image: getmeli/meli:beta
+  ports:
+    # change the host port to your liking
+    - 8005:80
+  environment:
+    # ...
+    # add this
+    MELI_HTTPS_AUTO: 0
 ```
 
 </div>

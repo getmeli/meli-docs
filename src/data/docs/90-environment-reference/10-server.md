@@ -746,12 +746,12 @@ MELI_MULTER_LIMITS={"fileSize":150000000}
 
 ## MELI\_HTTPS\_AUTO
 
-**Default**: 1
+**Default**: true
 
 **Required**: no
 
-**Type**: number
+**Type**: boolean
 
 **Description**:
 
-Controls whether Meli serves through https and it's own certificate management.
+Controls whether Meli should handle SSL on its own. Disable this when deploying Meli behind a reverse proxy.
