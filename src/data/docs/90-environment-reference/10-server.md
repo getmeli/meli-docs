@@ -742,4 +742,16 @@ A stringified JSON object with [Multer limits](https://github.com/expressjs/mult
 MELI_MULTER_LIMITS={"fileSize":150000000}
 ```
 
-</div> 
+</div>
+
+## MELI\_HTTPS\_AUTO
+
+**Default**: 1
+
+**Required**: no
+
+**Type**: number
+
+**Description**:
+
+Controls whether Meli serves through https and it's own certificate management.
