@@ -15,11 +15,11 @@ excerpt: 'Learn how to upload a site to Meli'
     
     ```shell script
     npx @getmeli/cli upload \
+       ./public \
         --url http://localhost:80 \
         --site <site-id> \
         --token <site-token> \
-        --branch "latest" \
-        ./public
+        --branch "latest"
     ```
     
     </div>
