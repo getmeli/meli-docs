@@ -13,5 +13,5 @@ Meli uses [Caddy](https://caddyserver.com/) to serve deployed sites, and offers 
 > Found a security issue ? Please [let us know](https://github.com/getmeli/meli/security/advisories/new) !
 
 - [Installation](/get-started/installation)
-- [API](/api/api)
+- [API](/api/get-started)
 - [Integrations](/integrations)
