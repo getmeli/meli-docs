@@ -30,39 +30,33 @@ isHomePage: true | false
 
 Blank lines are important.
 
-```markdown
-<div class="code-group">
+    <div class="code-group">
 
-\`\`\`yaml
-# Your code here
-\`\`\`
+    ```yaml
+    # Your code here
+    ```
 
-</div>
-```
+    </div>
 
 To show line numbers:
 
-```markdown
-<div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
+    <div class="code-group" data-props='{ "lineNumbers": ["true"] }'>
 
-\`\`\`yaml
-# Your code here
-\`\`\`
+    ```yaml
+    # Your code here
+    ```
 
-</div>
-```
+    </div>
 
 To add a file name:
 
-```
-<div class="code-group" data-props='{ "lineNumbers": ["true"], "labels": ["my-file.yaml"] }'>
+    <div class="code-group" data-props='{ "lineNumbers": ["true"], "labels": ["my-file.yaml"] }'>
 
-\`\`\`yaml
-# Your code here
-\`\`\`
+    ```yaml
+    # Your code here
+    ```
 
-</div>
-```
+    </div>
 
 **Info/Warning/Danger**
 
