@@ -52,7 +52,7 @@ jobs:
           npm run build
       - name: "publish"
         run: |
-          npx @getmeli/cli@next upload \
+          npx @getmeli/cli upload \
             --url "https://cloud.meli.sh" \
             --site "$MELI_SITE" \
             --token "$MELI_TOKEN" \
