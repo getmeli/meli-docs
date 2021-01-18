@@ -47,7 +47,7 @@ jobs:
         with:
           node-version: '12'
       - name: "build"
-        run |
+        run: |
           npm ci
           npm run build
       - name: "publish"
