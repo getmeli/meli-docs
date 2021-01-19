@@ -44,7 +44,7 @@ Here is a quick example for accessing the API to delete a site branch.
     // load your .env and place it in process.env
     require('dotenv/config');
     
-    const url = 'https://cloud.meli.sh';
+    const url = 'https://meli.my-company.com';
     const siteId = 'b3a9c55d-d740-436f-84bb-03bdec6bf518';
     
     const axios = require('axios').create({

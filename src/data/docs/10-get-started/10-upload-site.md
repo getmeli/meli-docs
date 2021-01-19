@@ -53,7 +53,7 @@ jobs:
       - name: "publish"
         run: |
           npx @getmeli/cli upload \
-            --url "https://cloud.meli.sh" \
+            --url "https://meli.my-company.com" \
             --site "$MELI_SITE" \
             --token "$MELI_TOKEN" \
             --release "$GITHUB_SHA" \
