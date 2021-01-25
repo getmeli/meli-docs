@@ -60,6 +60,10 @@ jobs:
             ./public
         env:
           MELI_TOKEN: ${{ secrets.MELI_TOKEN }}
+          # Enable PR previews:
+          # uses the default GITHUB_TOKEN set by Github Actions
+          # https://docs.github.com/en/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 </div>
