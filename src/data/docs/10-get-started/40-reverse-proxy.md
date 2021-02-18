@@ -53,6 +53,12 @@ certbot certonly \
 
 </div>
 
+<div class="blockquote" data-props='{ "mod": "warning" }'>
+
+You will also have to generate wildcard certificates for site branches. We plan to simplify this process.
+
+</div> 
+
 Please change the domain names to reflect your setup.
 
 <div class="blockquote" data-props='{ "mod": "info" }'>
