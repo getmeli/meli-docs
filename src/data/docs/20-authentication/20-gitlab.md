@@ -10,7 +10,7 @@ From your Gitlab **admin area**, [add a new application](https://docs.gitlab.com
 
 | Field | Value |
 | ---- | ---- |
-| Name   | Metroline | 
+| Name   | Meli | 
 | Redirect URL | `<meli-server-url>/auth/gitlab/callback` |
 | Trusted | true |
 | Scopes | api |
@@ -19,7 +19,7 @@ After creating the application, Gitlab will give you both the **Client ID** and 
 
 <div class="blockquote" data-props='{ "mod": "warning" }'>
 
-You may need to check "Allow requests to the local network from web hooks and services" in **Admin / Settings / Network / Outbound requests** for webhooks to be sent to Metroline.
+You may need to check "Allow requests to the local network from web hooks and services" in **Admin / Settings / Network / Outbound requests** for webhooks to be sent to Meli.
 
 </div>
 

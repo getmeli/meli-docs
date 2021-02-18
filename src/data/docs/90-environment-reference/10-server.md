@@ -340,7 +340,7 @@ Forces the server to rollback the last migration, then exit. Use this when you'r
 
 **Description**:
 
-Allows you to set the [SameSite](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite) property for cookies defined by the server. Useful when your Metroline server has a different host or URL than your UI.
+Allows you to set the [SameSite](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite) property for cookies defined by the server. Useful when your Meli server has a different host or URL than your UI.
 
 ## MELI\_COOKIE\_SECURE
 

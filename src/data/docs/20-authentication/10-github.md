@@ -10,7 +10,7 @@ In Github, go to **Settings / Developer Settings / OAuth Apps** and add a new OA
 
 | Field | Value |
 | ---- | ---- |
-| Application name   | Metroline | 
+| Application name   | Meli | 
 | Homepage URL   | https://meli.sh | 
 | Authorization callback URL | `<meli-server-url>/auth/github/callback` |
 
