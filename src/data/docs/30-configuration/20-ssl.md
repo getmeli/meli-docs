@@ -30,7 +30,7 @@ If you want to use a custom another CA:
 MELI_ACME_SERVER=https://acme-staging-v02.api.letsencrypt.org/directory
 
 # Optionaly, if using a private ACME server, you should specify:
-MELI_ACME_CADDY_CA_PATH=<path to the CA certificate in the Caddy container>
+MELI_ACME_CA_PATH=<path to the CA certificate in the Caddy container>
 ```
 
 </div>
