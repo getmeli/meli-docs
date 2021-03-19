@@ -21,14 +21,20 @@ Forms can be protected using Google Recaptcha V3.
 1. Get your API keys [here](https://www.google.com/recaptcha/admin/create).
 1. Configure environment variables in Meli:
 
+<div class="code-group">
+
 ```dotenv
 MELI_GOOGLE_RECAPTCHA_SITE_KEY=
 MELI_GOOGLE_RECAPTCHA_SECRET_KEY=
 ```
 
-## Using <script/>
+</div>
+
+## Using `<script/>`
 
 Place a `.meli.yml` at your site root:
+
+<div class="code-group">
 
 ```yaml
 forms:
@@ -37,7 +43,11 @@ forms:
     recipient: test@test.com
 ```
 
+</div>
+
 Create an HTML form:
+
+<div class="code-group">
 
 ```html
 <!doctype html>
@@ -68,10 +78,14 @@ Create an HTML form:
 </html>
 ```
 
+</div>
+
 By default, the sdk automatically looks for forms with the `data-form` attribute. You can disable this by:
 
 - adding the `data-meli-init="false"` to your script tag
 - removing the `async` directive from your script tag
+
+<div class="code-group">
 
 ```html
 
@@ -81,15 +95,23 @@ By default, the sdk automatically looks for forms with the `data-form` attribute
 </script>
 ```
 
+</div>
+
 ## Using Npm
 
 Install the SDK:
+
+<div class="code-group">
 
 ```
 npm i @getmeli/sdk
 ```
 
+</div>
+
 Use it in your code:
+
+<div class="code-group">
 
 ```js
 import Meli from 'meli';
@@ -97,9 +119,13 @@ import Meli from 'meli';
 Meli.Forms.init().catch(console.error);
 ```
 
+</div>
+
 ## Api
 
 To pass your own forms:
+
+<div class="code-group">
 
 ```js
 const form = document.getElementById('my-form');
@@ -109,7 +135,11 @@ Meli.Forms
   .catch(console.error);
 ```
 
+</div>
+
 Manually create a form and bind it:
+
+<div class="code-group">
 
 ```js
 Meli.Forms
@@ -121,7 +151,11 @@ Meli.Forms
   .catch(console.error);
 ```
 
+</div>
+
 To remove all listeners:
+
+<div class="code-group">
 
 ```js
 // ...
@@ -129,9 +163,13 @@ const form = new Meli.Forms.Form(form);
 forms.remove();
 ```
 
+</div>
+
 ## Events
 
 On the HTML form element:
+
+<div class="code-group">
 
 ```js
 const formElement = document.getElementById('my-form');
@@ -140,7 +178,11 @@ formElement.addEventListener('submitted', () => {
 });
 ```
 
+</div>
+
 Or on the `Form` object:
+
+<div class="code-group">
 
 ```js
 Meli.Forms
@@ -154,6 +196,8 @@ Meli.Forms
   })
   .catch(console.error);
 ```
+
+</div>
 
 | Event | Callback signature | Description |
 |----|----|----|
