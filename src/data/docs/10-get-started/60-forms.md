@@ -14,6 +14,18 @@ Inputs of type `file` are sent as attachments.
 
 </div>
 
+## Captcha
+
+Forms can be protected using Google Recaptcha V3.
+
+1. Get your API keys [here](https://www.google.com/recaptcha/admin/create).
+1. Configure environment variables in Meli:
+
+```dotenv
+MELI_GOOGLE_RECAPTCHA_SITE_KEY=
+MELI_GOOGLE_RECAPTCHA_SECRET_KEY=
+```
+
 ## Using <script/>
 
 Place a `.meli.yml` at your site root:

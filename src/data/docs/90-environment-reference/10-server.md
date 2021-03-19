@@ -755,3 +755,27 @@ MELI_MULTER_LIMITS={"fileSize":150000000}
 **Description**:
 
 Controls whether Meli should handle SSL on its own. Disable this when deploying Meli behind a reverse proxy.
+
+## MELI\_GOOGLE\_RECAPTCHA\_SITE\_KEY
+
+**Default**: undefined
+
+**Required**: no
+
+**Type**: string
+
+**Description**:
+
+Google Recaptcha V3 site key. This key can be obtained after creating a new app [here](https://www.google.com/recaptcha/admin/create).
+
+## MELI\_GOOGLE\_RECAPTCHA\_SECRET\_KEY
+
+**Default**: undefined
+
+**Required**: no
+
+**Type**: string
+
+**Description**:
+
+Google Recaptcha V3 secret key. This key can be obtained after creating a new app [here](https://www.google.com/recaptcha/admin/create).
