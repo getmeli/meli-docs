@@ -83,8 +83,9 @@ Your cloud provider should have a user interface that allows you to configure DN
 ![Login Page](../../../images/login-page.png)
 
 <div class="blockquote" data-props='{ "mod": "info" }'>
-    
-Deploying behind a reverse proxy ? A bit more config is required for HTTPs. Checkout our guide on [installing behind a Reverse Proxy](/get-started/reverse-proxy).
+
+Deploying behind a reverse proxy ? A bit more config is required for HTTPs. Checkout our guide
+on [installing behind a Reverse Proxy](/configuration/reverse-proxy).
 
 </div>
 
