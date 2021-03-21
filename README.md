@@ -85,14 +85,3 @@ Your content here.
 
 </div>
 ```
-
-## Algolia
-
-You can find this info in your Algolia account under **API keys**.
-
-```dotenv
-ALGOLIA_ADMIN_KEY=
-GATSBY_ALGOLIA_APP_ID=
-GATSBY_ALGOLIA_INDEX_NAME=
-GATSBY_ALGOLIA_SEARCH_ONLY_KEY=
-```

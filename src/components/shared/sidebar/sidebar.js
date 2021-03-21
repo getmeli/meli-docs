@@ -3,17 +3,7 @@ import Media from 'react-media';
 import classNames from 'classnames/bind';
 import styles from './sidebar.module.scss';
 import { Link, navigate, withPrefix } from 'gatsby';
-import AlgoliaQueries from 'utils/algolia';
 import _startCase from 'lodash/startCase';
-
-const indexName = AlgoliaQueries[0].indexName;
-
-// local helper data
-//
-// algolia indices
-const searchIndices = [
-  { name: indexName, title: 'Doc Pages', hitComp: 'docPageHit' },
-];
 
 const cx = classNames.bind(styles);
 
