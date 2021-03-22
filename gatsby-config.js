@@ -120,14 +120,7 @@ const plugins = [
     },
   },
   'gatsby-alias-imports',
-  {
-    resolve: 'gatsby-plugin-sass',
-    options: {
-      sassOptions: {
-        includePaths: ["./src/styles/variables" , "./src/styles/mixins"],
-      }
-    },
-  },
+  'gatsby-plugin-sass',
 ];
 
 module.exports = {
