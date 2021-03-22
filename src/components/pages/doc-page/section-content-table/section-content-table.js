@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styles from './section-content-table.module.scss';
+import * as styles from './section-content-table.module.scss';
 
 const SectionContentTable = ({ sectionLinks }) => {
   return (

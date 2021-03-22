@@ -7,7 +7,7 @@ import LinksBlock from 'components/shared/links-block';
 import PageContentTable from '../page-content-table';
 import Banner from 'components/shared/banner';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
-import styles from './content.module.scss';
+import * as styles from './content.module.scss';
 
 const cx = classNames.bind(styles);
 

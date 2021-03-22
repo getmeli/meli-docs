@@ -1,3 +1,6 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
 .wrapper {
   background-color: $color-primary;
   border-radius: 5px;

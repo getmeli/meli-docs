@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {AnimatePresence, motion, useCycle} from 'framer-motion';
 import cl from 'classnames';
-import styles from './header-mobile.module.scss';
+import * as styles from './header-mobile.module.scss';
 import {MOTION_EASE} from 'constants/animation-variables';
 
 const backgroundAnimation = {

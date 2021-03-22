@@ -12,14 +12,13 @@ query localSearch {
 `;
 
 export function LocalSearch({ className }) {
-  //const { localSearchProdEn: { index, store } } = useStaticQuery(searchIndexQuery);
+  const { localSearchProdEn: { index, store } } = useStaticQuery(searchIndexQuery);
 
   return (
-    // <SearchModal
-    //   index={index}
-    //   store={store}
-    //   className={className}
-    // />
-    <></>
+    <SearchModal
+      index={index}
+      store={store}
+      className={className}
+    />
   )
 }

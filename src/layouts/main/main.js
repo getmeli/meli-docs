@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Footer from 'components/shared/footer';
 import Sidebar from 'components/shared/sidebar';
 import Seo from 'components/shared/seo';
-import styles from './main.module.scss';
+import * as styles from './main.module.scss';
 import Header from '../../components/shared/header';
 import Favicon from '../../components/shared/seo/Favicon';
 

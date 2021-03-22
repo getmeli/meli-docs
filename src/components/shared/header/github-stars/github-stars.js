@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from './github-stars.module.scss';
+import * as styles from './github-stars.module.scss';
 import classNames from 'classnames';
 
 export function GithubStars({ className }) {

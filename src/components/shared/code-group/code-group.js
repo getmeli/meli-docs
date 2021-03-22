@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { getRandomKey } from 'utils';
-import styles from './code-group.module.scss';
+import * as styles from './code-group.module.scss';
 import WithCopyButton from 'components/shared/with-copy-button';
 import Code from 'components/shared/code';
 

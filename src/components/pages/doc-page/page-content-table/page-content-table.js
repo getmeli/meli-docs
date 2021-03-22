@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './page-content-table.module.scss';
+import * as styles from './page-content-table.module.scss';
 import { useLandmark } from 'hooks';
 
 const PageContentTable = () => {

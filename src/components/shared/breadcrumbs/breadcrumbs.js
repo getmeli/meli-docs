@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { Link } from 'gatsby';
-import styles from './breadcrumbs.module.scss';
+import * as styles from './breadcrumbs.module.scss';
 
 const Breadcrumbs = ({ breadcrumbs }) =>
   breadcrumbs.length ? (

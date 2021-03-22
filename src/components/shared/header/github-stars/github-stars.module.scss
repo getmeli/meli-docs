@@ -1,3 +1,6 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
 .count {
   background: $color-primary;
   color: $color-tertiary;

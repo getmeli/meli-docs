@@ -1,7 +1,7 @@
 import React from 'react';
 import { compose, slugify } from 'utils';
 import AnchorIcon from 'images/anchor.inline.svg';
-import styles from './heading-mark.module.scss';
+import * as styles from './heading-mark.module.scss';
 
 // takes a slug of kind `/slug/to-some-resources`
 // and applies a number of rules to ensure it is valid

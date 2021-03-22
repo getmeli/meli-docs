@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './footer.module.scss';
+import * as styles from './footer.module.scss';
 import { GITHUB_URL, TWITTER_URL } from '../../../constants';
 
 const Footer = props => (
@@ -10,13 +10,13 @@ const Footer = props => (
           Crafted by{' '}
           <a
             href="https://charlie-bravo.be"
-            className={`link ${styles.companyLink}`}
+            className={`link ${styles.link}`}
             target="_blank"
           >
             Charlie Bravo
           </a>
         </div>
-        <div className={styles.footerCopyrightText}>
+        <div className={styles.copyright}>
           <a
             href={TWITTER_URL}
             className={`link ${styles.link}`}

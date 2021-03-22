@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Media from 'react-media';
 import HeaderMobile from 'components/shared/header-mobile';
-import styles from './header.module.scss';
+import * as styles from './header.module.scss';
 import HeaderLogo from '../header-logo';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

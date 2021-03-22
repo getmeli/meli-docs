@@ -1,3 +1,6 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
 :global {
   *[data-blur='true'] {
     filter: blur(8px);

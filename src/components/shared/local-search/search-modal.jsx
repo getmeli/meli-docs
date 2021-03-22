@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useFlexSearch } from 'react-use-flexsearch';
 import React, { useEffect, useState } from 'react';
-import styles from './search.module.scss';
+import * as styles from './search.module.scss';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Modal from 'react-modal';
