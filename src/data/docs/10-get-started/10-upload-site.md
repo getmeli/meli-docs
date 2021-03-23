@@ -14,7 +14,7 @@ excerpt: 'Learn how to upload a site to Meli'
     <div class="code-group">
     
     ```shell script
-    npx -p "@getmeli/cli" upload \
+    npx -p "@getmeli/cli" meli upload \
        ./public \
         --url http://localhost:80 \
         --site <site-id> \
@@ -52,12 +52,11 @@ jobs:
           npm run build
       - name: "publish"
         run: |
-          npx -p "@getmeli/cli" upload \
+          npx -p "@getmeli/cli" meli upload ./public \
             --url "https://meli.my-company.com" \
             --site "$MELI_SITE" \
             --token "$MELI_TOKEN" \
-            --release "$GITHUB_SHA" \
-            ./public
+            --release "$GITHUB_SHA"
         env:
           MELI_TOKEN: ${{ secrets.MELI_TOKEN }}
           # Enable PR previews:
