@@ -14,7 +14,7 @@ excerpt: 'Learn how to upload a site to Meli'
     <div class="code-group">
     
     ```shell script
-    npx @getmeli/cli upload \
+    npx -p "@getmeli/cli" upload \
        ./public \
         --url http://localhost:80 \
         --site <site-id> \
@@ -52,7 +52,7 @@ jobs:
           npm run build
       - name: "publish"
         run: |
-          npx @getmeli/cli upload \
+          npx -p "@getmeli/cli" upload \
             --url "https://meli.my-company.com" \
             --site "$MELI_SITE" \
             --token "$MELI_TOKEN" \
