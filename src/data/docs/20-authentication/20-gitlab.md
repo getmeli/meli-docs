@@ -12,7 +12,7 @@ From your Gitlab **admin area**, [add a new application](https://docs.gitlab.com
 | ---- | ---- |
 | Name   | Meli | 
 | Redirect URL | `<meli-server-url>/auth/gitlab/callback` |
-| Trusted | true |
+| Trusted / Confidential | true |
 | Scopes | api |
 
 After creating the application, Gitlab will give you both the **Client ID** and **Client Secret**, which they respectively name **Application ID** and **Application Secret**.
