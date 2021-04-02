@@ -1,3 +1,0 @@
----
-sidebarTitle: 'Environment reference'
----

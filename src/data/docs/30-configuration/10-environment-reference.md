@@ -1,10 +1,10 @@
 ---
-title: 'Server Environment Reference'
-sidebarTitle: 'Server'
-excerpt: 'Environment variables of Meli API'
+title: 'Environment variables'
+sidebarTitle: 'Environment'
+excerpt: 'Environment variables of Meli'
 ---
 
-# Server Environment Reference
+# Environment variables
 
 ## DEBUG
 
@@ -779,3 +779,15 @@ Google Recaptcha V3 site key. This key can be obtained after creating a new app 
 **Description**:
 
 Google Recaptcha V3 secret key. This key can be obtained after creating a new app [here](https://www.google.com/recaptcha/admin/create).
+
+## MELI\_POSTHOG\_ENABLED
+
+**Default**: true
+
+**Required**: no
+
+**Type**: boolean
+
+**Description**:
+
+Whether PostHog should be enabled. More info [here]().
