@@ -81,7 +81,6 @@ const Sidebar = ({ sidebar, slug }) => {
           <nav className={styles.nav}>
             {Object
               .values(sidebar)
-              .filter(({ children }) => Object.keys(children).length !== 0)
               .map(
                 ({ meta: { sidebarTitle, title, path }, name, children }, i) => (
                   <div
@@ -90,7 +89,12 @@ const Sidebar = ({ sidebar, slug }) => {
                       'section-main': i === 0,
                     })}
                   >
-                    <a className={styles.title} href={path}>
+                    <a
+                      className={cx(styles.title, {
+                        [styles.linkActive]: selectedPath === path,
+                      })}
+                      href={path}
+                    >
                       {sidebarTitle || title || name}
                     </a>
                     <div

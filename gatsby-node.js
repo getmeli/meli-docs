@@ -13,7 +13,7 @@ async function createDocPages({ actions: { createPage }, graphql, reporter }) {
 
   const { getTreePart, addNode } = buildFileTree(buildFileTreeNode);
 
-  data.allFile.nodes.forEach(({ name, relativeDirectory, children, children: [remarkNode] }) => {
+  data.allFile.nodes.forEach(({ name, relativeDirectory, children, children: [remarkNode], ...props }) => {
       const child = children[0];
       const { frontmatter: { title, excerpt, sidebarTitle } } = child;
       const entryPath = getNodePath(relativeDirectory, child);
