@@ -81,6 +81,7 @@ const Sidebar = ({ sidebar, slug }) => {
           <nav className={styles.nav}>
             {Object
               .values(sidebar)
+              .filter(({ meta: {isHomePage} }) => !isHomePage)
               .map(
                 ({ meta: { sidebarTitle, title, path }, name, children }, i) => (
                   <div

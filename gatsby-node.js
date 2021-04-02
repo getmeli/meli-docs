@@ -15,7 +15,7 @@ async function createDocPages({ actions: { createPage }, graphql, reporter }) {
 
   data.allFile.nodes.forEach(({ name, relativeDirectory, children, children: [remarkNode], ...props }) => {
       const child = children[0];
-      const { frontmatter: { title, excerpt, sidebarTitle } } = child;
+      const { frontmatter: { title, excerpt, sidebarTitle, isHomePage } } = child;
       const entryPath = getNodePath(relativeDirectory, child);
 
       // populate our tree representation with actual nodes
@@ -24,6 +24,7 @@ async function createDocPages({ actions: { createPage }, graphql, reporter }) {
         title,
         excerpt,
         sidebarTitle,
+        isHomePage,
       });
 
       // for debugging purpose in case there are errors in md/html syntax
