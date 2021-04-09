@@ -12,7 +12,7 @@ By default Meli prints emails to the console. However, you can configure email c
 
 ```shell script
 MELI_MAIL_FROM: noreply@meli.sh
-MELI_MAIL_HOST: localhost
+MELI_MAIL_HOST: smtp.company.com
 MELI_MAIL_PORT: 1025
 MELI_MAIL_USERNAME: user
 MELI_MAIL_PASSWORD: password
@@ -22,21 +22,18 @@ MELI_MAIL_PASSWORD: password
 
 For development purposes, we use [Mailhog](https://github.com/mailhog/MailHog):
 
-<div class="code-group" data-props='{ "labels": [".env"] }'>
-
-```dotenv
-MELI_MAIL_FROM: noreply@meli.sh
-MELI_MAIL_HOST: localhost
-MELI_MAIL_PORT: 1025
-```
-
-</div>
-
 <div class="code-group" data-props='{ "labels": ["docker-compose.yml"] }'>
 
 ```yaml
 version: "3"
 services:
+  # ...
+  meli:
+    # ...
+    environment:
+      MELI_MAIL_FROM: noreply@meli.sh
+      MELI_MAIL_HOST: mailhog
+      MELI_MAIL_PORT: 1025
   mailhog:
     image: mailhog/mailhog
     ports:
