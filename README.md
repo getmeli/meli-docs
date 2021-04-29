@@ -7,3 +7,15 @@
 <p align="center">Open source platform for deploying static sites and frontend applications.</p>
 
 ## Get started
+
+```
+npm install
+npm start
+```
+
+## Testing a production build
+
+```
+npm run build
+npm run serve
+```
