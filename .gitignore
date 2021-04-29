@@ -80,3 +80,5 @@ yarn-error.log
 tmp
 tmp.*
 *.tmp
+.docusaurus
+build
