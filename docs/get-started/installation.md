@@ -49,6 +49,7 @@ Your cloud provider should have a user interface that allows you to configure DN
           MELI_PASSWORD: changeMe
         volumes:
           - ./data/sites:/sites
+          - ./data/files:/files
           - ./data/caddy/data:/data
           - ./data/caddy/config:/config
         depends_on:
