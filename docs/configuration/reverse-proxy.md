@@ -5,6 +5,12 @@ description: ""
 
 ## Introduction
 
+:::caution
+
+Branch SSL certificates are not supported at the moment because you would need to generate a wildcard certificate for each site. We will be fixing this soon.
+
+:::
+
 Meli by default uses Caddy's automatic HTTPS support to deploy with Let's Encrypt certificates for your configured domain. However, deployment behind a reverse proxy is supported, but you will need to handle SSL certificate issuance and renewal on your own - you will want to get a wildcard SSL certificate instead. We assume you have followed the [installation guide](/get-started/installation).
 
 ## Configure Meli
@@ -124,4 +130,90 @@ server {
     return 404;
 }
 
+```
+
+### Traefik
+
+:::caution
+
+Branches are not supported at the moment because you would need to generate a wildcard certificate for each site. We'll be fixing this soon.
+
+:::
+
+To deploy Meli behind a Traefik reverse proxy, you'll need to:
+1. define a [DNS challenge](https://doc.traefik.io/traefik/user-guides/docker-compose/acme-dns/) certificate resolver
+1. configure Traefik for Meli so that it generates wildcard certificates
+1. disable Meli's default HTTPs configuration to delegate it to Traefik. This is done by setting `MELI_HTTPS_AUTO: "false"`.
+
+Here is an example using the OVH DNS challenge provider:
+
+```yaml
+version: '3.7'
+services:
+
+  traefik:
+    image: traefik:2.3
+    container_name: traefik
+    restart: unless-stopped
+    command:
+      - '--log.level=INFO'
+      - '--api.dashboard=true'
+      - '--accesslog=true'
+      - '--providers.docker=true'
+      - '--providers.docker.exposedbydefault=false'
+      - '--entrypoints.websecure.address=:443'
+      - '--entrypoints.web.address=:80'
+      - '--entrypoints.web.http.redirections.entrypoint.to=websecure'
+      - '--entrypoints.web.http.redirections.entrypoint.scheme=https'
+      # DNS challenge resolver
+      - '--certificatesresolvers.letsencrypt-dns.acme.email=info@domain.com'
+      - '--certificatesresolvers.letsencrypt-dns.acme.storage=/letsencrypt-dns/acme-dns.json'
+      - '--certificatesresolvers.letsencrypt-dns.acme.dnschallenge=true'
+      - '--certificatesresolvers.letsencrypt-dns.acme.dnschallenge.provider=ovh'
+      - '--certificatesresolvers.letsencrypt-dns.acme.dnschallenge.delaybeforecheck=0'
+      - '--certificatesresolvers.letsencrypt-dns.acme.dnsChallenge.resolvers=1.1.1.1:53,8.8.8.8:53'
+      # uncomment this during your tests to use LetsEncrypt staging server
+      #- '--certificatesresolvers.letsencrypt-dns.acme.caServer=https://acme-staging-v02.api.letsencrypt.org/directory'
+    env_file:
+      # contains OVH environment variables (this is specific to your DNS challenge provider)
+      - traefik.env
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /data/traefik/letsencrypt:/letsencrypt
+      - /data/traefik/letsencrypt-dns:/letsencrypt-dns
+
+  meli:
+    image: getmeli/meli:beta
+    environment:
+      MELI_URL: https://meli.domain.com
+      MELI_MONGO_URI: mongodb://meli_mongo:27017/meli
+      MELI_HTTPS_AUTO: "false"
+    env_file:
+      - meli.env
+    volumes:
+      - /data/meli/sites:/sites
+      - /data/meli/files:/files
+      - /data/meli/caddy/data:/data
+      - /data/meli/caddy/config:/config
+    depends_on:
+      - meli_mongo
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.meli.loadbalancer.server.port=80"
+      # use regex matching to route primary and subdomains here
+      - "traefik.http.routers.meli.rule=HostRegexp(`meli.domain.com`, `{subdomain:.+}.meli.domain.com`)"
+      # tell Traefik to generate a wildcard certificate for this domain
+      - "traefik.http.routers.meli.tls.certresolver=letsencrypt-dns"
+      - "traefik.http.routers.meli.tls.domains[0].main=meli.domain.com"
+      - "traefik.http.routers.meli.tls.domains[0].sans=*.meli.domain.com"
+      - "traefik.http.routers.meli.entrypoints=websecure"
+
+  meli_mongo:
+    image: mongo:4.2-bionic
+    restart: unless-stopped
+    volumes:
+      - /data/meli/mongo:/data/db
 ```
