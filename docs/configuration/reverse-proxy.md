@@ -5,9 +5,15 @@ description: ""
 
 ## Introduction
 
+:::danger
+
+The most simple use case is to deploy Meli on a single VPS, or have it co-exist with other containers on a VPS by giving it its own IP (failover). It will make your life a lot easier. In particular, it will save you the hassle of managing your SSL certificates. 
+
+:::
+
 :::caution
 
-Branch SSL certificates are not supported at the moment because you would need to generate a wildcard certificate for each site. We will be fixing this soon.
+Branch SSL certificates are not supported at the moment because you would need to generate a wildcard certificate for each site. We will be fixing this soon. Custom domain SSL certificate management is also your responsibility.
 
 :::
 
