@@ -11,7 +11,7 @@ From your Gitlab **admin area**, [add a new application](https://docs.gitlab.com
 | Name   | Meli | 
 | Redirect URL | `<meli-server-url>/auth/gitlab/callback` |
 | Trusted / Confidential | true |
-| Scopes | api |
+| Scopes | read_api |
 
 After creating the application, Gitlab will give you both the **Client ID** and **Client Secret**, which they respectively name **Application ID** and **Application Secret**.
 
@@ -33,7 +33,7 @@ services:
       # ...
       MELI_GITLAB_CLIENT_ID: <your-gitlab-application-id>
       MELI_GITLAB_CLIENT_SECRET: <your-gitlab-application-secret>
-      MELI_GITLAB_URL: http://10.0.1.23:3003
+      MELI_GITLAB_URL: https://gitlab.com # Or the URL to your own Gitlab instance
       # restrict access to your Gitlab group
       MELI_GITLAB_GROUPS: my-org-1,my-org-2
 ```
