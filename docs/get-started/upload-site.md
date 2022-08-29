@@ -19,7 +19,7 @@ description: 'Learn how to upload a site to Meli'
     ```
    
 1. Your site is now live at `https://latest.my-site.meli.my-company.com` and `https://my-site.meli.my-company.com`
-1. Point your domain to the site in meli. If you are pointing `sub.domain.com` to a meli site, you can add a `CNAME` DNS record to point `sub.domain.com` to `my-site.meli.my-company.com`. If you are pointing a primary domain (`domain.com`), you have to create a DNS `A` record ppointing to the **IP** where Meli serves your sites.
+1. Point your domain to the site in meli. If you are pointing `sub.domain.com` to a meli site, you can add a `CNAME` DNS record to point `sub.domain.com` to `my-site.meli.my-company.com`. If you are pointing a primary domain (`domain.com`), you have to create a DNS `A` record pointing to the **IP** where Meli serves your sites.
 
 ## Github Actions
 
